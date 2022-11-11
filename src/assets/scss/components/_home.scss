@@ -1,0 +1,5 @@
+.home-container {
+  display: grid;
+  grid-template: 1fr / repeat(6, 1fr);
+  grid-gap: rem-calc(30);
+}

@@ -12,12 +12,12 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 78.125%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #1779ba,
-  secondary: #767676,
+  secondary: #009de0,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
@@ -82,16 +82,16 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
+    'h1': ('font-size': 12.5),
+    'h2': ('font-size': 12.5),
     'h3': ('font-size': 19),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
+    'h1': ('font-size': 12.5),
+    'h2': ('font-size': 12.5),
     'h3': ('font-size': 31),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
@@ -113,10 +113,10 @@ $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;
 $hr-margin: rem-calc(20) auto;
 $list-lineheight: $paragraph-lineheight;
-$list-margin-bottom: $paragraph-margin-bottom;
-$list-style-type: disc;
+$list-margin-bottom: 0;
+$list-style-type: none;
 $list-style-position: outside;
-$list-side-margin: 1.25rem;
+$list-side-margin: 0;
 $list-nested-side-margin: 1.25rem;
 $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;

@@ -1,0 +1,25 @@
+- name: E RT N.1 Tee
+  collection: Kingdom 01
+  description: description text for E RT N.1 Tee
+  specific: specific text for E RT N.1 Tee
+- name: E RT N.2 Shirt M/Lunga
+  collection: Kingdom 01
+  description: description text for E RT N.2 Shirt M/Lunga
+  specific: specific text for E RT N.2 Shirt M/Lunga
+- name: E RT N.3 Felpa
+  collection: Kingdom 01
+  description: description text for E RT N.3 Felpa
+  specific: specific text for E RT N.3 Felpa
+- name: E RT N.4 Antivento
+  collection: Kingdom 02
+  description: description text for E RT N.4 Antivento
+  specific: specific text for E RT N.4 Antivento
+- name: E RT N.5 Shetland Crewneck
+  collection: Kingdom 02
+  description: description text for E RT N.5 Shetland Crewneck
+  specific: specific text for E RT N.5 Shetland Crewneck
+- name: E RT N.6 Shetland Cardigan
+  collection: Kingdom 01
+  description: description text for E RT N.6 Shetland Cardigan
+  specific: specific text for E RT N.6 Shetland Cardigan
+

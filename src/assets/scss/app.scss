@@ -6,3 +6,7 @@
 // Global styles
 @include foundation-global-styles;
 @include foundation-typography;
+
+@import "./global/general";
+@import "./components/home";
+@import "./components/list";
