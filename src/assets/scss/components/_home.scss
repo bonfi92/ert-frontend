@@ -3,3 +3,12 @@
   grid-template: 1fr / repeat(6, 1fr);
   grid-gap: rem-calc(30);
 }
+
+.logo {
+  font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 900;
+
+  span {
+    visibility: hidden;
+  }
+}
