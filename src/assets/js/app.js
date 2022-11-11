@@ -3,11 +3,13 @@ const products = document.querySelectorAll('.list-container--products li')
 const descriptions = document.querySelectorAll('.list-container--descriptions li')
 const specifics = document.querySelectorAll('.list-container--specifics li')
 const years = document.querySelectorAll('.list-container--years li')
+const previewImage = document.querySelector('.preview-image')
 
 const onCollectionClickHandler = (e) => {
     for (const collection of collections) {
         if (collection === e.target) {
             e.target.classList.add('active')
+            previewImage.src = collection.dataset.image
         } else {
             collection.classList.remove('active')
         }

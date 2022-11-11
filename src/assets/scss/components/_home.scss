@@ -12,3 +12,9 @@
     visibility: hidden;
   }
 }
+
+.preview-image {
+  position: fixed;
+  bottom: rem-calc(10);
+  left: rem-calc(10);
+}

@@ -7,7 +7,7 @@
         <h2>N.</h2>
         <ul>
             {{#each collections}}
-                <li data-collection="{{this.name}}">{{this.name}}</li>
+                <li data-collection="{{this.name}}" data-image="{{this.image}}">{{this.name}}</li>
             {{/each}}
         </ul>
     </div>
@@ -48,3 +48,5 @@
         </ul>
     </div>
 </section>
+
+<img class="preview-image" src="" alt="">
