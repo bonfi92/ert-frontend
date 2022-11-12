@@ -3,14 +3,23 @@ const PRODUCTS_CLASS = 'list-container--products'
 const YEARS_CLASS = 'list-container--years'
 const DESCRIPTIONS_CLASS = 'list-container--descriptions'
 const SPECIFICS_CLASS = 'list-container--specifics'
+
+const COLLECTION_IMAGE = 'collection-image'
+const PRODUCT_IMAGE = 'product-image'
+
 const VISIBLE_CLASS = 'visible'
 const ACTIVE_CLASS = 'active'
 
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
 export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
 
-export const setPreviewImage = (imageUrl) => {
-    const previewImage = document.querySelector('.preview-image')
+export const setCollectionImage = (imageUrl) => {
+    const previewImage = document.querySelector(`.${COLLECTION_IMAGE}`)
+    previewImage.src = imageUrl
+}
+
+export const setProductImage = (imageUrl) => {
+    const previewImage = document.querySelector(`.${PRODUCT_IMAGE}`)
     previewImage.src = imageUrl
 }
 
@@ -68,7 +77,7 @@ export const setActiveDescription = (product) => {
     )
 }
 
-export const setActiveSpecifics = (product) => {
+export const setActiveSpecific = (product) => {
     setActiveList(
         document.querySelector(`.${SPECIFICS_CLASS} li.${VISIBLE_CLASS}`),
         product ? document.querySelector(`.${SPECIFICS_CLASS} li[data-product="${product}"]`) : null,

@@ -3,10 +3,24 @@ import {
     products,
     setActiveCollection,
     setActiveDescription,
-    setActiveProducts, setActiveSpecifics,
+    setActiveProducts,
+    setActiveSpecific,
     setActiveYear,
-    setPreviewImage
+    setCollectionImage,
+    setProductImage
 } from "./helper";
+
+const preloadImages = () => {
+    for (const collection of collections) {
+        const image = new Image();
+        image.src = collection.dataset.image;
+    }
+
+    for (const product of products) {
+        const image = new Image();
+        image.src = product.dataset.image;
+    }
+}
 
 const onCollectionClickHandler = (e) => {
     const {collection, image} = e.target.dataset
@@ -14,20 +28,25 @@ const onCollectionClickHandler = (e) => {
     setActiveCollection(collection)
     setActiveProducts(collection)
     setActiveYear(collection)
-    setPreviewImage(image)
+    setCollectionImage(image)
+    setProductImage('')
 }
 
 const onProductHoverHandler = (e) => {
-    const {product} = e.target.dataset
+    const {product, image} = e.target.dataset
 
     setActiveDescription(product)
-    setActiveSpecifics(product)
+    setActiveSpecific(product)
+    setProductImage(image)
 }
 
 const onProductLeaveHandler = () => {
     setActiveDescription()
-    setActiveSpecifics()
+    setActiveSpecific()
+    setProductImage('')
 }
+
+/* *** INIT APP *** */
 
 for (const collection of collections) {
     collection.addEventListener('click', onCollectionClickHandler)
@@ -37,3 +56,5 @@ for (let product of products) {
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
+
+preloadImages()

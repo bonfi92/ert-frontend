@@ -16,7 +16,7 @@
         <h2>Item</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}" data-collection="{{this.collection}}">{{this.name}}</li>
+                <li data-product="{{this.name}}" data-collection="{{this.collection}}" data-image="{{this.image}}">{{this.name}}</li>
             {{/each}}
         </ul>
     </div>
@@ -49,4 +49,7 @@
     </div>
 </section>
 
-<img class="preview-image" src="" alt="">
+<div class="preview-image-container">
+    <img class="collection-image" src="" alt="collection image">
+    <img class="product-image" src="" alt="product image">
+</div>
