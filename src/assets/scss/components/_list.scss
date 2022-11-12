@@ -1,11 +1,16 @@
 .list-container {
   li {
+    display: none;
     cursor: url("../img/cursor-point.svg") 0 0, default;
 
     &.active,
     &:hover {
       animation: wobble-skew 1s linear 1;
       color: $secondary-color;
+    }
+
+    &.visible {
+      display: block;
     }
   }
 }

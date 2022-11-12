@@ -7,7 +7,7 @@
         <h2>N.</h2>
         <ul>
             {{#each collections}}
-                <li data-collection="{{this.name}}" data-image="{{this.image}}">{{this.name}}</li>
+                <li data-collection="{{this.name}}" data-image="{{this.image}}" class="visible">{{this.name}}</li>
             {{/each}}
         </ul>
     </div>
@@ -16,7 +16,7 @@
         <h2>Item</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}" data-collection="{{this.collection}}" class="hidden">{{this.name}}</li>
+                <li data-product="{{this.name}}" data-collection="{{this.collection}}">{{this.name}}</li>
             {{/each}}
         </ul>
     </div>
@@ -25,7 +25,7 @@
         <h2>Description</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}" class="hidden">{{this.description}}</li>
+                <li data-product="{{this.name}}">{{this.description}}</li>
             {{/each}}
         </ul>
     </div>
@@ -34,7 +34,7 @@
         <h2>Specific</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}" class="hidden">{{this.specific}}</li>
+                <li data-product="{{this.name}}">{{this.specific}}</li>
             {{/each}}
         </ul>
     </div>
