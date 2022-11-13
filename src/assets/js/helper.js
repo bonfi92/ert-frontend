@@ -10,20 +10,14 @@ const PRODUCT_IMAGE = 'home__product-image'
 const VISIBLE_CLASS = 'visible'
 const ACTIVE_CLASS = 'active'
 
+export const TZ_STRING = 'Europe/Rome' // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
 export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
+export const footerHour = document.querySelector('.footer__hour')
+export const footerMinute = document.querySelector('.footer__minute')
+export const footerDate = document.querySelector('.footer__option--date')
 
-const setActiveImage = (currentActiveImage, imageToActivate, className) => {
-    if (currentActiveImage) {
-        currentActiveImage.classList.remove(className)
-    }
-
-    if (imageToActivate) {
-        imageToActivate.classList.add(className)
-    }
-}
-
-const setActiveList = (currentActiveList, listToActivate, className) => {
+const setActive = (currentActiveList, listToActivate, className) => {
     if (currentActiveList) {
         if (currentActiveList.length !== undefined) {
             for (const list of currentActiveList) {
@@ -46,7 +40,7 @@ const setActiveList = (currentActiveList, listToActivate, className) => {
 }
 
 export const setCollectionImage = (collection) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${COLLECTION_IMAGE}.${VISIBLE_CLASS}`),
         document.querySelector(`.${COLLECTION_IMAGE}[data-collection="${collection}"]`),
         VISIBLE_CLASS
@@ -54,7 +48,7 @@ export const setCollectionImage = (collection) => {
 }
 
 export const setProductImage = (product) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${PRODUCT_IMAGE}.${VISIBLE_CLASS}`),
         document.querySelector(`.${PRODUCT_IMAGE}[data-product="${product}"]`),
         VISIBLE_CLASS
@@ -62,7 +56,7 @@ export const setProductImage = (product) => {
 }
 
 export const setActiveCollection = (collection) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${COLLECTIONS_CLASS} li.${ACTIVE_CLASS}`),
         document.querySelector(`.${COLLECTIONS_CLASS} li[data-collection="${collection}"]`),
         ACTIVE_CLASS
@@ -70,7 +64,7 @@ export const setActiveCollection = (collection) => {
 }
 
 export const setActiveProducts = (collection) => {
-    setActiveList(
+    setActive(
         document.querySelectorAll(`.${PRODUCTS_CLASS} li.${VISIBLE_CLASS}`),
         document.querySelectorAll(`.${PRODUCTS_CLASS} li[data-collection="${collection}"]`),
         VISIBLE_CLASS
@@ -78,7 +72,7 @@ export const setActiveProducts = (collection) => {
 }
 
 export const setActiveYear = (collection) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${YEARS_CLASS} li.${VISIBLE_CLASS}`),
         document.querySelector(`.${YEARS_CLASS} li[data-collection="${collection}"]`),
         VISIBLE_CLASS
@@ -86,7 +80,7 @@ export const setActiveYear = (collection) => {
 }
 
 export const setActiveDescription = (product) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${DESCRIPTIONS_CLASS} li.${VISIBLE_CLASS}`),
         product ? document.querySelector(`.${DESCRIPTIONS_CLASS} li[data-product="${product}"]`) : null,
         VISIBLE_CLASS
@@ -94,9 +88,14 @@ export const setActiveDescription = (product) => {
 }
 
 export const setActiveSpecific = (product) => {
-    setActiveList(
+    setActive(
         document.querySelector(`.${SPECIFICS_CLASS} li.${VISIBLE_CLASS}`),
         product ? document.querySelector(`.${SPECIFICS_CLASS} li[data-product="${product}"]`) : null,
         VISIBLE_CLASS
     )
 }
+
+
+export const convertTZ = (date, tzString) => new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}))
+
+export const addLeadingZero = num => ('0' + num).slice(-2);

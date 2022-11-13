@@ -3,9 +3,9 @@ a {
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 }
 
-body {
-  padding: rem-calc(12 14);
+main {
   height: 100vh;
+  padding: $page-padding;
 }
 
 .point-cursor {

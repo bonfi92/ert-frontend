@@ -1,0 +1,30 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $page-padding;
+  text-align: right;
+
+  &__separator {
+    animation: blink 2s steps(1) infinite;
+  }
+
+  &__option {
+    & + .footer__option {
+      margin-left: rem-calc(6);
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,5 +1,8 @@
 import {
+    addLeadingZero,
     collections,
+    convertTZ,
+    footerDate, footerHour, footerMinute,
     products,
     setActiveCollection,
     setActiveDescription,
@@ -7,8 +10,9 @@ import {
     setActiveSpecific,
     setActiveYear,
     setCollectionImage,
-    setProductImage
-} from "./helper";
+    setProductImage,
+    TZ_STRING
+} from "./helper"
 
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
@@ -34,6 +38,19 @@ const onProductLeaveHandler = () => {
     setProductImage()
 }
 
+const currentDate = () => {
+    const d = new Date();
+    const nd = convertTZ(d, TZ_STRING);
+    footerDate.innerHTML = addLeadingZero(nd.getDate()) + '.' + addLeadingZero(nd.getMonth() + 1) + '.' + nd.getFullYear()
+};
+
+const currentTime = () => {
+    const d = new Date()
+    const nd = convertTZ(d, TZ_STRING)
+    footerHour.innerHTML = addLeadingZero(nd.getHours())
+    footerMinute.innerHTML = addLeadingZero(nd.getMinutes())
+}
+
 /* *** INIT APP *** */
 
 for (const collection of collections) {
@@ -44,3 +61,7 @@ for (let product of products) {
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
+
+currentDate();
+currentTime()
+setInterval(currentTime, 2500);

@@ -47,6 +47,7 @@ $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 $print-hrefs: true;
+$page-padding: rem-calc(12 14);
 
 @include add-foundation-colors;
 
