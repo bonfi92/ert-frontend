@@ -78,19 +78,27 @@
 </section>
 
 <div class="home__preview-images">
-    {{#each collections}}
-        <a href="/gallery/{{this.name}}">
-            <img class="home__collection-image {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
-                 src="{{this.image}}" alt="collection image"
-                 data-collection="{{this.id}}"
-            />
+    <div class="home__images-container">
+        {{#each collections}}
+        <a href="/gallery/{{this.name}}"
+           class="home__image home__collection-image {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
+           data-collection="{{this.id}}"
+        >
+            <img src="{{this.image}}" alt="collection image"/>
+            1 of 5
         </a>
-    {{/each}}
-    {{#each products}}
-        <img class="home__product-image"
-             src="{{this.image}}"
-             alt="collection image"
+        {{/each}}
+    </div>
+    <div class="home__images-container">
+        {{#each products}}
+        <div class="home__image home__product-image"
              data-product="{{this.name}}"
-        />
-    {{/each}}
+        >
+            <img
+                    src="{{this.image}}"
+                    alt="collection image"
+            />
+        </div>
+        {{/each}}
+    </div>
 </div>

@@ -1,11 +1,16 @@
-*,
+* {
+  cursor: url("../img/cursor-ert.svg") 0 0, default;
+}
+
 a {
+  color: inherit !important;
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 }
 
 body {
   height: 100vh;
   overflow: hidden;
+  font-size: rem-calc(12.5);
 }
 
 ::selection {

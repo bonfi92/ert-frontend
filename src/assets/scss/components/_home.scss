@@ -22,15 +22,27 @@
   }
 
   &__preview-images {
+    display: flex;
     position: fixed;
     bottom: rem-calc(10);
     left: rem-calc(10);
 
-    img {
+    .home__images-container {
+      & + .home__images-container {
+        margin-left: rem-calc(15);
+      }
+    }
+
+    .home__image {
+      display: inline-block;
       visibility: hidden;
       position: absolute;
       opacity: 0;
       transition: opacity .15s ease-in-out;
+
+      img {
+        display: block;
+      }
 
       &.visible {
         position: relative;
