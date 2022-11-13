@@ -4,36 +4,9 @@
   grid-gap: rem-calc(30);
   height: 100%;
 
-  &__logo {
-    cursor: url("../img/cursor-ert-read-more.svg") 0 0, default;
-
-    h1 {
-      display: inline;
-      font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-      font-weight: 900;
-      cursor: inherit;
-
-      span {
-        visibility: hidden;
-      }
-    }
-
-    p {
-      display: none;
-      cursor: inherit;
-    }
-
-    &:hover {
-      p {
-        display: inline;
-      }
-    }
-  }
-
   &__list {
     li {
       display: none;
-      cursor: url("../img/cursor-point.svg") 0 0, default;
 
       &.active,
       &:hover {

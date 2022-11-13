@@ -10,18 +10,6 @@ import {
     setProductImage
 } from "./helper";
 
-// const preloadImages = () => {
-//     for (const collection of collections) {
-//         const image = new Image();
-//         image.src = collection.dataset.image;
-//     }
-//
-//     for (const product of products) {
-//         const image = new Image();
-//         image.src = product.dataset.image;
-//     }
-// }
-
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
 
@@ -56,5 +44,3 @@ for (let product of products) {
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
-
-// preloadImages()

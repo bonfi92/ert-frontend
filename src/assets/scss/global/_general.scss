@@ -1,8 +1,43 @@
-* {
+*,
+a {
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 }
 
 body {
   padding: rem-calc(12 14);
   height: 100vh;
+}
+
+.point-cursor {
+  cursor: url("../img/cursor-point.svg") 0 0, default;
+}
+
+.logo {
+  h1 {
+    display: inline;
+    font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    font-weight: 900;
+
+    span {
+      visibility: hidden;
+    }
+  }
+
+  p {
+    display: none;
+  }
+
+  &:hover {
+    p {
+      display: inline;
+    }
+  }
+
+  &--expanded {
+    cursor: inherit;
+
+    p {
+      display: inline;
+    }
+  }
 }

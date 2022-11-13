@@ -1,17 +1,22 @@
 <section class="home">
-    <div class="home__logo">
-        <h1>
-            <span>H</span>E<span>A</span>RT
-        </h1>
-        <p>{{data.description}}</p>
-    </div>
-
+    <a href="/about" class="logo">
+        <div class="point-cursor" >
+            <h1 class="point-cursor">
+                <span>H</span>E<span>A</span>RT
+            </h1>
+            <p class="point-cursor">{{data.description}}</p>
+        </div>
+    </a>
 
     <div class="home__list home__list--collections">
         <h2>N.</h2>
         <ul>
             {{#each collections}}
-                <li data-collection="{{this.name}}" class="visible">{{this.name}}</li>
+                <li data-collection="{{this.name}}"
+                    class="point-cursor visible"
+                >
+                    {{this.name}}
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -20,7 +25,12 @@
         <h2>Item</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}" data-collection="{{this.collection}}">{{this.name}}</li>
+                <li data-product="{{this.name}}"
+                    data-collection="{{this.collection}}"
+                    class="point-cursor"
+                >
+                    {{this.name}}
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -29,7 +39,11 @@
         <h2>Description</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}">{{this.description}}</li>
+                <li data-product="{{this.name}}"
+                    class="point-cursor"
+                >
+                    {{this.description}}
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -38,7 +52,11 @@
         <h2>Specific</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}">{{this.specific}}</li>
+                <li data-product="{{this.name}}"
+                    class="point-cursor"
+                >
+                    {{this.specific}}
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -47,7 +65,11 @@
         <h2>Year</h2>
         <ul>
             {{#each collections}}
-                <li data-collection="{{this.name}}">{{this.year}}</li>
+                <li data-collection="{{this.name}}"
+                    class="point-cursor"
+                >
+                    {{this.year}}
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -55,9 +77,18 @@
 
 <div class="home__preview-images">
     {{#each collections}}
-        <img class="home__collection-image" src="{{this.image}}" alt="collection image" data-collection="{{this.name}}">
+        <a href="/gallery/{{this.name}}">
+            <img class="home__collection-image"
+                 src="{{this.image}}" alt="collection image"
+                 data-collection="{{this.name}}"
+            />
+        </a>
     {{/each}}
     {{#each products}}
-        <img class="home__product-image" src="{{this.image}}" alt="collection image" data-product="{{this.name}}">
+        <img class="home__product-image"
+             src="{{this.image}}"
+             alt="collection image"
+             data-product="{{this.name}}"
+        />
     {{/each}}
 </div>
