@@ -3,8 +3,27 @@ a {
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 }
 
-main {
+body {
   height: 100vh;
+  overflow: hidden;
+}
+
+::selection {
+  color: $secondary-color;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+main {
+  height: 100%;
   padding: $page-padding;
 }
 
@@ -12,7 +31,22 @@ main {
   cursor: url("../img/cursor-point.svg") 0 0, default;
 }
 
+.page {
+  display: flex;
+  height: 100%;
+
+  &__content {
+    flex: 3;
+  }
+
+  .logo {
+    flex: 1;
+  }
+}
+
 .logo {
+  padding-right: rem-calc(15);
+
   h1 {
     display: inline;
     font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;

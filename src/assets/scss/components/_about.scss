@@ -1,6 +1,11 @@
 .about {
-  display: grid;
-  grid-template: 1fr / 2fr 5fr 2fr 1fr;
-  grid-gap: rem-calc(50);
-  height: 100%;
+  &__description {
+    overflow-y: auto;
+  }
+
+  .page__content {
+    display: grid;
+    grid-template: 1fr / 5fr 2fr auto;
+    grid-gap: rem-calc(50);
+  }
 }

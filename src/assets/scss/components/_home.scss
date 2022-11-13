@@ -1,7 +1,9 @@
 .home {
-  display: grid;
-  grid-template: 1fr / repeat(6, 1fr);
-  grid-gap: rem-calc(50);
+  .page__content {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr) auto;
+    grid-gap: rem-calc(50);
+  }
 
   &__list {
     li {
