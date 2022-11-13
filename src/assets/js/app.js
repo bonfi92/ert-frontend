@@ -23,27 +23,27 @@ import {
 // }
 
 const onCollectionClickHandler = (e) => {
-    const {collection, image} = e.target.dataset
+    const {collection} = e.target.dataset
 
     setActiveCollection(collection)
     setActiveProducts(collection)
     setActiveYear(collection)
-    setCollectionImage(image)
-    setProductImage('')
+    setCollectionImage(collection)
+    setProductImage(collection)
 }
 
 const onProductHoverHandler = (e) => {
-    const {product, image} = e.target.dataset
+    const {product} = e.target.dataset
 
     setActiveDescription(product)
     setActiveSpecific(product)
-    setProductImage(image)
+    setProductImage(product)
 }
 
 const onProductLeaveHandler = () => {
     setActiveDescription()
     setActiveSpecific()
-    setProductImage('')
+    setProductImage()
 }
 
 /* *** INIT APP *** */

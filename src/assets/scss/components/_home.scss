@@ -53,10 +53,14 @@
     left: rem-calc(10);
 
     img {
+      visibility: hidden;
+      position: absolute;
       opacity: 0;
       transition: opacity .15s ease-in-out;
 
       &.visible {
+        position: relative;
+        visibility: visible;
         opacity: 1;
       }
     }

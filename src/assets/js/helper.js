@@ -13,12 +13,13 @@ const ACTIVE_CLASS = 'active'
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
 export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
 
-const setActiveImage = (imageElement, imageUrl) => {
-    if (imageUrl) {
-        imageElement.src = imageUrl
-        imageElement.classList.add(VISIBLE_CLASS)
-    } else {
-        imageElement.classList.remove(VISIBLE_CLASS)
+const setActiveImage = (currentActiveImage, imageToActivate, className) => {
+    if (currentActiveImage) {
+        currentActiveImage.classList.remove(className)
+    }
+
+    if (imageToActivate) {
+        imageToActivate.classList.add(className)
     }
 }
 
@@ -44,17 +45,19 @@ const setActiveList = (currentActiveList, listToActivate, className) => {
     }
 }
 
-export const setCollectionImage = (imageUrl) => {
-    setActiveImage(
-        document.querySelector(`.${COLLECTION_IMAGE}`),
-        imageUrl
+export const setCollectionImage = (collection) => {
+    setActiveList(
+        document.querySelector(`.${COLLECTION_IMAGE}.${VISIBLE_CLASS}`),
+        document.querySelector(`.${COLLECTION_IMAGE}[data-collection="${collection}"]`),
+        VISIBLE_CLASS
     )
 }
 
-export const setProductImage = (imageUrl) => {
-    setActiveImage(
-        document.querySelector(`.${PRODUCT_IMAGE}`),
-        imageUrl
+export const setProductImage = (product) => {
+    setActiveList(
+        document.querySelector(`.${PRODUCT_IMAGE}.${VISIBLE_CLASS}`),
+        document.querySelector(`.${PRODUCT_IMAGE}[data-product="${product}"]`),
+        VISIBLE_CLASS
     )
 }
 
