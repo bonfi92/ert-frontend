@@ -1,39 +1,75 @@
-.home-container {
+.home {
   display: grid;
   grid-template: 1fr / repeat(6, 1fr);
   grid-gap: rem-calc(30);
   height: 100%;
-}
 
-.logo {
-  cursor: url("../img/cursor-ert-read-more.svg") 0 0, default;
+  &__logo {
+    cursor: url("../img/cursor-ert-read-more.svg") 0 0, default;
 
-  h1 {
-    display: inline;
-    font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-    font-weight: 900;
-    cursor: inherit;
-
-    span {
-      visibility: hidden;
-    }
-  }
-
-  p {
-    display: none;
-    cursor: inherit;
-  }
-
-  &:hover {
-    p {
+    h1 {
       display: inline;
+      font-family: 'Helvetica Black', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+      font-weight: 900;
+      cursor: inherit;
+
+      span {
+        visibility: hidden;
+      }
+    }
+
+    p {
+      display: none;
+      cursor: inherit;
+    }
+
+    &:hover {
+      p {
+        display: inline;
+      }
     }
   }
 
+  &__list {
+    li {
+      display: none;
+      cursor: url("../img/cursor-point.svg") 0 0, default;
+
+      &.active,
+      &:hover {
+        animation: wobble-skew 1s linear 1;
+        color: $secondary-color;
+      }
+
+      &.visible {
+        display: block;
+      }
+    }
+  }
+
+  &__preview-images {
+    position: fixed;
+    bottom: rem-calc(10);
+    left: rem-calc(10);
+  }
 }
 
-.preview-image-container {
-  position: fixed;
-  bottom: rem-calc(10);
-  left: rem-calc(10);
+@keyframes wobble-skew {
+  16.65% {
+    transform: skew(-12deg);
+  }
+  33.3% {
+    transform: skew(10deg);
+  }
+  49.95% {
+    transform: skew(-6deg);
+  }
+  66.6% {
+    transform: skew(4deg); }
+  83.25% {
+    transform: skew(-2deg);
+  }
+  100% {
+    transform: skew(0);
+  }
 }

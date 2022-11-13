@@ -1,11 +1,11 @@
-const COLLECTIONS_CLASS = 'list-container--collections'
-const PRODUCTS_CLASS = 'list-container--products'
-const YEARS_CLASS = 'list-container--years'
-const DESCRIPTIONS_CLASS = 'list-container--descriptions'
-const SPECIFICS_CLASS = 'list-container--specifics'
+const COLLECTIONS_CLASS = 'home__list--collections'
+const PRODUCTS_CLASS = 'home__list--products'
+const YEARS_CLASS = 'home__list--years'
+const DESCRIPTIONS_CLASS = 'home__list--descriptions'
+const SPECIFICS_CLASS = 'home__list--specifics'
 
-const COLLECTION_IMAGE = 'collection-image'
-const PRODUCT_IMAGE = 'product-image'
+const COLLECTION_IMAGE = 'home__collection-image'
+const PRODUCT_IMAGE = 'home__product-image'
 
 const VISIBLE_CLASS = 'visible'
 const ACTIVE_CLASS = 'active'
