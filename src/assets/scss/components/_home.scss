@@ -51,6 +51,15 @@
     position: fixed;
     bottom: rem-calc(10);
     left: rem-calc(10);
+
+    img {
+      opacity: 0;
+      transition: opacity .15s ease-in-out;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
   }
 }
 

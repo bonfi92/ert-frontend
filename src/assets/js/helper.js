@@ -13,14 +13,13 @@ const ACTIVE_CLASS = 'active'
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
 export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
 
-export const setCollectionImage = (imageUrl) => {
-    const previewImage = document.querySelector(`.${COLLECTION_IMAGE}`)
-    previewImage.src = imageUrl
-}
-
-export const setProductImage = (imageUrl) => {
-    const previewImage = document.querySelector(`.${PRODUCT_IMAGE}`)
-    previewImage.src = imageUrl
+const setActiveImage = (imageElement, imageUrl) => {
+    if (imageUrl) {
+        imageElement.src = imageUrl
+        imageElement.classList.add(VISIBLE_CLASS)
+    } else {
+        imageElement.classList.remove(VISIBLE_CLASS)
+    }
 }
 
 const setActiveList = (currentActiveList, listToActivate, className) => {
@@ -43,6 +42,20 @@ const setActiveList = (currentActiveList, listToActivate, className) => {
             listToActivate.classList.add(className)
         }
     }
+}
+
+export const setCollectionImage = (imageUrl) => {
+    setActiveImage(
+        document.querySelector(`.${COLLECTION_IMAGE}`),
+        imageUrl
+    )
+}
+
+export const setProductImage = (imageUrl) => {
+    setActiveImage(
+        document.querySelector(`.${PRODUCT_IMAGE}`),
+        imageUrl
+    )
 }
 
 export const setActiveCollection = (collection) => {
