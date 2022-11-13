@@ -13,6 +13,7 @@ import {
     setProductImage,
     TZ_STRING
 } from "./helper"
+import {Slider} from "./slideshow";
 
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
@@ -65,3 +66,5 @@ for (let product of products) {
 currentDate();
 currentTime()
 setInterval(currentTime, 2500);
+
+Slider(document.querySelector('.slideshow'))
