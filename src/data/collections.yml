@@ -1,8 +1,8 @@
-- id: 0
+- id: kingdom-01
   name: Kingdom 01
   year: 2022
   image: https://via.placeholder.com/350x200.jpg?text=Kingdom01
-- id: 1
+- id: kingdom-02
   name: Kingdom 02
   year: 2023
   image: https://via.placeholder.com/350x200.jpg?text=Kingdom02

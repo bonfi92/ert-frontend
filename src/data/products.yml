@@ -1,30 +1,30 @@
 - name: E RT N.1 Tee
-  collectionId: 0
+  collectionId: kingdom-01
   description: description text for E RT N.1 Tee
   specific: specific text for E RT N.1 Tee
   image: https://via.placeholder.com/350x200.jpg?text=N.1
 - name: E RT N.2 Shirt M/Lunga
-  collectionId: 0
+  collectionId: kingdom-01
   description: description text for E RT N.2 Shirt M/Lunga
   specific: specific text for E RT N.2 Shirt M/Lunga
   image: https://via.placeholder.com/350x200.jpg?text=N.2
 - name: E RT N.3 Felpa
-  collectionId: 0
+  collectionId: kingdom-01
   description: description text for E RT N.3 Felpa
   specific: specific text for E RT N.3 Felpa
   image: https://via.placeholder.com/350x200.jpg?text=N.3
 - name: E RT N.4 Antivento
-  collectionId: 1
+  collectionId: kingdom-02
   description: description text for E RT N.4 Antivento
   specific: specific text for E RT N.4 Antivento
   image: https://via.placeholder.com/350x200.jpg?text=N.4
 - name: E RT N.5 Shetland Crewneck
-  collectionId: 1
+  collectionId: kingdom-02
   description: description text for E RT N.5 Shetland Crewneck
   specific: specific text for E RT N.5 Shetland Crewneck
   image: https://via.placeholder.com/350x200.jpg?text=N.5
 - name: E RT N.6 Shetland Cardigan
-  collectionId: 0
+  collectionId: kingdom-01
   description: description text for E RT N.6 Shetland Cardigan
   specific: specific text for E RT N.6 Shetland Cardigan
   image: https://via.placeholder.com/350x200.jpg?text=N.6

@@ -14,7 +14,7 @@
             <ul>
                 {{#each collections}}
                     <li data-collection="{{this.id}}"
-                        class="point-cursor visible {{#ifequal this.id 0}}active{{/ifequal}}"
+                        class="point-cursor visible {{#ifequal this.id 'kingdom-01'}}active{{/ifequal}}"
                     >
                         {{this.name}}
                     </li>
@@ -28,7 +28,7 @@
                 {{#each products}}
                     <li data-product="{{this.name}}"
                         data-collection="{{this.collectionId}}"
-                        class="point-cursor {{#ifequal this.collectionId 0}}visible{{/ifequal}}"
+                        class="point-cursor {{#ifequal this.collectionId 'kingdom-01'}}visible{{/ifequal}}"
                     >
                         {{this.name}}
                     </li>
@@ -67,7 +67,7 @@
             <ul>
                 {{#each collections}}
                     <li data-collection="{{this.id}}"
-                        class="point-cursor {{#ifequal this.id 0}}visible{{/ifequal}}"
+                        class="point-cursor {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
                     >
                         {{this.year}}
                     </li>
@@ -80,7 +80,7 @@
 <div class="home__preview-images">
     {{#each collections}}
         <a href="/gallery/{{this.name}}">
-            <img class="home__collection-image {{#ifequal this.id 0}}visible{{/ifequal}}"
+            <img class="home__collection-image {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
                  src="{{this.image}}" alt="collection image"
                  data-collection="{{this.id}}"
             />
