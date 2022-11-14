@@ -12,8 +12,8 @@ import {
     setCollectionImage,
     setProductImage,
     TZ_STRING
-} from "./helper"
-import {Slider} from "./slideshow";
+} from './helper'
+import {Slider} from './slideshow'
 
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
@@ -40,10 +40,10 @@ const onProductLeaveHandler = () => {
 }
 
 const currentDate = () => {
-    const d = new Date();
-    const nd = convertTZ(d, TZ_STRING);
+    const d = new Date()
+    const nd = convertTZ(d, TZ_STRING)
     footerDate.innerHTML = addLeadingZero(nd.getDate()) + '.' + addLeadingZero(nd.getMonth() + 1) + '.' + nd.getFullYear()
-};
+}
 
 const currentTime = () => {
     const d = new Date()
@@ -63,8 +63,8 @@ for (let product of products) {
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
 
-currentDate();
+currentDate()
 currentTime()
-setInterval(currentTime, 2500);
+setInterval(currentTime, 2500)
 
 Slider(document.querySelector('.slideshow'))

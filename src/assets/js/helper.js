@@ -1,12 +1,15 @@
+// Home page - lists
 const COLLECTIONS_CLASS = 'home__list--collections'
 const PRODUCTS_CLASS = 'home__list--products'
 const YEARS_CLASS = 'home__list--years'
 const DESCRIPTIONS_CLASS = 'home__list--descriptions'
 const SPECIFICS_CLASS = 'home__list--specifics'
 
+// Home page - Preview images
 const COLLECTION_IMAGE = 'home__collection-image'
 const PRODUCT_IMAGE = 'home__product-image'
 
+// Home page - Classes
 const VISIBLE_CLASS = 'visible'
 const ACTIVE_CLASS = 'active'
 
@@ -96,6 +99,6 @@ export const setActiveSpecific = (product) => {
 }
 
 
-export const convertTZ = (date, tzString) => new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}))
+export const convertTZ = (date, tzString) => new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {timeZone: tzString}))
 
-export const addLeadingZero = num => ('0' + num).slice(-2);
+export const addLeadingZero = num => ('0' + num).slice(-2)
