@@ -1,10 +1,10 @@
 <section class="home page">
     <a href="{{root}}about" class="logo">
         <div class="point-cursor" >
-            <h1 class="point-cursor">
+            <h1>
                 <span>H</span>E<span>A</span>RT
             </h1>
-            <p class="point-cursor">{{data.description}}</p>
+            <p>{{data.description}}</p>
         </div>
     </a>
 
@@ -81,7 +81,7 @@
     <div class="home__images-container">
         {{#each collections}}
         <a href="{{root}}gallery/{{this.name}}"
-           class="home__image home__collection-image {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
+           class="home__image home__collection-image point-cursor {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
            data-collection="{{this.id}}"
         >
             <img src="{{this.image}}" alt="collection image"/>
