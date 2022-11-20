@@ -1,4 +1,6 @@
 .about {
+  overflow: hidden;
+
   &__description {
     overflow-y: auto;
   }

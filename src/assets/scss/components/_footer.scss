@@ -1,10 +1,6 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: $page-padding;
   text-align: right;
+  padding-top: rem-calc(12);
 
   &__separator {
     animation: blink 2s steps(1) infinite;

@@ -1,6 +1,5 @@
 body {
   height: 100vh;
-  overflow: hidden;
   font-size: rem-calc(12.5);
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 
@@ -12,6 +11,8 @@ body {
 main {
   height: 100%;
   padding: $page-padding;
+  display: flex;
+  flex-direction: column;
 }
 
 .point-cursor {
@@ -32,7 +33,13 @@ main {
 }
 
 .logo {
+  display: block;
   padding-right: rem-calc(15);
+  overflow: hidden;
+
+  &--one-line {
+    white-space: nowrap;
+  }
 
   h1 {
     display: inline;
