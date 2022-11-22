@@ -1,24 +1,11 @@
-// Home page - lists
-const COLLECTIONS_CLASS = 'home__list--collections'
-const PRODUCTS_CLASS = 'home__list--products'
-const YEARS_CLASS = 'home__list--years'
-const DESCRIPTIONS_CLASS = 'home__list--descriptions'
-const SPECIFICS_CLASS = 'home__list--specifics'
-
-// Home page - Preview images
-const COLLECTION_IMAGE = 'home__collection-image'
-const PRODUCT_IMAGE = 'home__product-image'
-
-// Home page - Classes
-const VISIBLE_CLASS = 'visible'
-const ACTIVE_CLASS = 'active'
-
-export const TZ_STRING = 'Europe/Rome' // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
-export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
-export const footerHour = document.querySelector('.footer__hour')
-export const footerMinute = document.querySelector('.footer__minute')
-export const footerDate = document.querySelector('.footer__option--date')
+import {
+    ACTIVE_CLASS,
+    COLLECTION_IMAGE,
+    COLLECTIONS_CLASS, DESCRIPTIONS_CLASS,
+    PRODUCT_IMAGE,
+    PRODUCTS_CLASS, SPECIFICS_CLASS,
+    VISIBLE_CLASS, YEARS_CLASS
+} from "./constants";
 
 const setActive = (currentActiveList, listToActivate, className) => {
     if (currentActiveList) {

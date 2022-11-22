@@ -19,22 +19,8 @@ main {
   cursor: url("../img/cursor-point.svg") 0 0, default;
 }
 
-.page {
-  display: flex;
-  height: 100%;
-
-  &__content {
-    flex: 3;
-  }
-
-  .logo {
-    flex: 1;
-  }
-}
-
 .logo {
   display: block;
-  padding-right: rem-calc(15);
   overflow: hidden;
 
   &--one-line {
@@ -52,12 +38,13 @@ main {
   }
 
   p {
-    display: none;
+    visibility: hidden;
+    display: inline;
   }
 
   &:hover {
     p {
-      display: inline;
+      visibility: visible;
     }
   }
 
@@ -68,6 +55,10 @@ main {
       display: inline;
     }
   }
+}
+
+.wobble-animation:hover {
+  animation: wobble-skew 1s linear 1;
 }
 
 ::selection {
@@ -82,4 +73,24 @@ main {
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
   background: white;
+}
+
+@keyframes wobble-skew {
+  16.65% {
+    transform: skew(-12deg);
+  }
+  33.3% {
+    transform: skew(10deg);
+  }
+  49.95% {
+    transform: skew(-6deg);
+  }
+  66.6% {
+    transform: skew(4deg); }
+  83.25% {
+    transform: skew(-2deg);
+  }
+  100% {
+    transform: skew(0);
+  }
 }

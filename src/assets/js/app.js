@@ -1,9 +1,6 @@
 import {
     addLeadingZero,
-    collections,
     convertTZ,
-    footerDate, footerHour, footerMinute,
-    products,
     setActiveCollection,
     setActiveDescription,
     setActiveProducts,
@@ -11,9 +8,16 @@ import {
     setActiveYear,
     setCollectionImage,
     setProductImage,
-    TZ_STRING
 } from './helper'
 import {Slider} from './slideshow'
+import {
+    collections,
+    footerDate,
+    footerHour,
+    footerMinute,
+    products, slider,
+    TZ_STRING
+} from "./constants";
 
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
@@ -39,13 +43,13 @@ const onProductLeaveHandler = () => {
     setProductImage()
 }
 
-const currentDate = () => {
+const setCurrentDate = () => {
     const d = new Date()
     const nd = convertTZ(d, TZ_STRING)
     footerDate.innerHTML = addLeadingZero(nd.getDate()) + '.' + addLeadingZero(nd.getMonth() + 1) + '.' + nd.getFullYear()
 }
 
-const currentTime = () => {
+const setCurrentTime = () => {
     const d = new Date()
     const nd = convertTZ(d, TZ_STRING)
     footerHour.innerHTML = addLeadingZero(nd.getHours())
@@ -63,8 +67,10 @@ for (let product of products) {
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
 
-currentDate()
-currentTime()
-setInterval(currentTime, 2500)
+setCurrentDate()
+setCurrentTime()
+setInterval(setCurrentTime, 2500)
 
-Slider(document.querySelector('.slideshow'))
+if (slider) {
+    Slider(slider)
+}

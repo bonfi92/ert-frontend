@@ -1,13 +1,10 @@
 .about {
+  display: grid;
+  grid-template: 1fr / 25% 5fr 2fr auto;
+  grid-gap: rem-calc(20);
   overflow: hidden;
 
   &__description {
     overflow-y: auto;
-  }
-
-  .page__content {
-    display: grid;
-    grid-template: 1fr / 5fr 2fr auto;
-    grid-gap: rem-calc(50);
   }
 }

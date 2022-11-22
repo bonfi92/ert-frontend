@@ -1,17 +1,21 @@
 .home {
-  .page__content {
-    display: grid;
-    grid-template: 1fr / repeat(4, 1fr) auto;
-    grid-gap: rem-calc(50);
-  }
+  height: 100%;
+  display: grid;
+  grid-template: 1fr / 25% 2fr 1fr 1fr 1fr auto;
+  grid-gap: rem-calc(20);
 
   &__list {
+    &--with-image {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     li {
       display: none;
 
       &.active,
       &:hover {
-        animation: wobble-skew 1s linear 1;
         color: $secondary-color;
       }
 
@@ -21,54 +25,21 @@
     }
   }
 
-  &__preview-images {
-    display: flex;
-    position: fixed;
-    bottom: rem-calc(10);
-    left: rem-calc(10);
+  .home__image {
+    display: inline-block;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
 
-    .home__images-container {
-      & + .home__images-container {
-        margin-left: rem-calc(15);
-      }
+    img {
+      display: block;
     }
 
-    .home__image {
-      display: inline-block;
-      visibility: hidden;
-      position: absolute;
-      opacity: 0;
-      transition: opacity .15s ease-in-out;
-
-      img {
-        display: block;
-      }
-
-      &.visible {
-        position: relative;
-        visibility: visible;
-        opacity: 1;
-      }
+    &.visible {
+      position: relative;
+      visibility: visible;
+      opacity: 1;
     }
-  }
-}
-
-@keyframes wobble-skew {
-  16.65% {
-    transform: skew(-12deg);
-  }
-  33.3% {
-    transform: skew(10deg);
-  }
-  49.95% {
-    transform: skew(-6deg);
-  }
-  66.6% {
-    transform: skew(4deg); }
-  83.25% {
-    transform: skew(-2deg);
-  }
-  100% {
-    transform: skew(0);
   }
 }
