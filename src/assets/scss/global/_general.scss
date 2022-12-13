@@ -48,12 +48,8 @@ main {
     }
   }
 
-  &--expanded {
-    cursor: inherit;
-
-    p {
-      display: inline;
-    }
+  &--expanded p {
+    visibility: visible;
   }
 }
 
