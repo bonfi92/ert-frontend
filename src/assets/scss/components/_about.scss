@@ -1,10 +1,33 @@
 .about {
-  display: grid;
-  grid-template: 1fr / 25% 5fr 2fr auto;
+  display: initial;
+  grid-template: 1fr / 25% 5fr 2fr rem-calc(36);
   grid-gap: rem-calc(20);
-  overflow: hidden;
+  overflow: auto;
+  padding-right: rem-calc(36);
 
   &__description {
     overflow-y: auto;
+    padding-bottom: rem-calc(16);
+  }
+
+  &__index {
+    position: fixed;
+    top: rem-calc(12);
+    right: rem-calc(14);
+  }
+
+  .logo {
+    padding-bottom: rem-calc(16);
+  }
+
+  @include breakpoint(medium) {
+    display: grid;
+    overflow: hidden;
+    padding-right: 0;
+
+    .logo,
+    &__description {
+      padding-bottom: 0;
+    }
   }
 }
