@@ -2,30 +2,70 @@
   collectionId: kingdom-01
   description: description text for E RT N.1 Tee
   specific: specific text for E RT N.1 Tee
-  image: https://via.placeholder.com/350x200.jpg?text=N.1
+  image: https://picsum.photos/id/75/350/200
 - name: E RT N.2 Shirt M/Lunga
   collectionId: kingdom-01
   description: description text for E RT N.2 Shirt M/Lunga
   specific: specific text for E RT N.2 Shirt M/Lunga
-  image: https://via.placeholder.com/350x200.jpg?text=N.2
+  image: https://picsum.photos/id/80/350/200
 - name: E RT N.3 Felpa
   collectionId: kingdom-01
   description: description text for E RT N.3 Felpa
   specific: specific text for E RT N.3 Felpa
-  image: https://via.placeholder.com/350x200.jpg?text=N.3
-- name: E RT N.4 Antivento
-  collectionId: kingdom-02
-  description: description text for E RT N.4 Antivento
-  specific: specific text for E RT N.4 Antivento
-  image: https://via.placeholder.com/350x200.jpg?text=N.4
-- name: E RT N.5 Shetland Crewneck
-  collectionId: kingdom-02
-  description: description text for E RT N.5 Shetland Crewneck
-  specific: specific text for E RT N.5 Shetland Crewneck
-  image: https://via.placeholder.com/350x200.jpg?text=N.5
+  image: https://picsum.photos/id/91/350/200
+- name: E RT N.4 Antitarme Candela Ghost
+  collectionId: kingdom-01
+  description: description text for E RT N.4 Antitarme Candela Ghost
+  specific: specific text for E RT N.4 Antitarme Candela Ghost
+  image: https://picsum.photos/id/91/350/200
+- name: E RT N.5 Lollipop Ghost
+  collectionId: kingdom-01
+  description: description text for E RT N.5 Lollipop Ghost
+  specific: specific text for E RT N.5 Lollipop Ghost
+  image: https://picsum.photos/id/91/350/200
 - name: E RT N.6 Shetland Cardigan
   collectionId: kingdom-01
   description: description text for E RT N.6 Shetland Cardigan
   specific: specific text for E RT N.6 Shetland Cardigan
-  image: https://via.placeholder.com/350x200.jpg?text=N.6
+  image: https://picsum.photos/id/146/350/200
+- name: E RT N.7 Incrocino
+  collectionId: kingdom-01
+  description: description text for E RT N.7 Incrocino
+  specific: specific text for E RT N.7 Incrocino
+  image: https://picsum.photos/id/147/350/200
+- name: E RT N.8 Jeans
+  collectionId: kingdom-01
+  description: description text for E RT N.8 Jeans
+  specific: specific text for E RT N.8 Jeans
+  image: https://picsum.photos/id/148/350/200
+- name: E RT N.9 Pantalone Elegante
+  collectionId: kingdom-01
+  description: description text for E RT N.9 Pantalone Elegante
+  specific: specific text for E RT N.9 Pantalone Elegante
+  image: https://picsum.photos/id/149/350/200
+- name: E RT N.10 Skirt
+  collectionId: kingdom-01
+  description: description text for E RT N.10 Skirt
+  specific: specific text for E RT N.10 Skirt
+  image: https://picsum.photos/id/150/350/200
+- name: E RT N.11 Camicia
+  collectionId: kingdom-01
+  description: description text for E RT N.11 Camicia
+  specific: specific text for E RT N.11 Camicia
+  image: https://picsum.photos/id/151/350/200
+- name: E RT N.12 Polo M/Lunga
+  collectionId: kingdom-01
+  description: description text for E RT N.12 Polo M/Lunga
+  specific: specific text for E RT N.12 Polo M/Lunga
+  image: https://picsum.photos/id/152/350/200
+- name: E RT N.1 Antivento
+  collectionId: kingdom-02
+  description: description text for E RT N.1 Antivento
+  specific: specific text for E RT N.1 Antivento
+  image: https://picsum.photos/id/102/350/200
+- name: E RT N.2 Shetland Crewneck
+  collectionId: kingdom-02
+  description: description text for E RT N.2 Shetland Crewneck
+  specific: specific text for E RT N.2 Shetland Crewneck
+  image: https://picsum.photos/id/129/350/200
 
