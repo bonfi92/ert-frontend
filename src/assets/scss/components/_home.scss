@@ -11,8 +11,13 @@
       justify-content: space-between;
     }
 
+    ul {
+      margin-top: rem-calc(16);
+    }
+
     li {
       display: none;
+      margin: rem-calc(4 0);
 
       &.active,
       &:hover {

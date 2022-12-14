@@ -6,6 +6,10 @@ body {
   * {
     cursor: inherit;
   }
+
+  @include breakpoint(medium) {
+    font-size: rem-calc(14);
+  }
 }
 
 main {
