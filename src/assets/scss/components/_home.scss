@@ -13,7 +13,6 @@
 
     li {
       display: none;
-      margin: rem-calc(4 0);
 
       &.active,
       &:hover {
@@ -51,7 +50,7 @@
   }
 
   @include breakpoint(medium) {
-    grid-template: 1fr / 25% 2fr 1fr 1fr 1fr auto;
+    grid-template: 1fr / 25% 1fr 1fr 1fr 1fr auto;
 
     &__list--descriptions,
     &__list--specifics,

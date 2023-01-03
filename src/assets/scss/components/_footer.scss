@@ -1,5 +1,6 @@
 .footer {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
   padding-top: rem-calc(12);
 
   &__separator {
@@ -7,6 +8,10 @@
   }
 
   &__option {
+    &--time {
+      display: inline-flex;
+    }
+
     & + .footer__option {
       margin-left: rem-calc(6);
     }

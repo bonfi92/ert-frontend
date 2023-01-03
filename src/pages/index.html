@@ -4,15 +4,12 @@
             <h1>
                 <span>H</span>E<span>A</span>RT
             </h1>
-            <p>{{data.description}}</p>
+            <p>{{data.description}} <span>(See more)</span></p>
         </a>
         {{#each collections}}
-        <a href="{{root}}gallery/{{this.id}}"
-           class="home__image home__collection-image point-cursor"
-           data-collection="{{this.id}}"
-        >
+        <div class="home__image home__collection-image" data-collection="{{this.id}}">
             <img src="{{this.image}}" alt="collection image"/>
-        </a>
+        </div>
         {{/each}}
         {{#each products}}
         <div class="home__image home__product-image" data-product="{{this.name}}">
@@ -95,29 +92,4 @@
             {{/each}}
         </ul>
     </div>
-
-<!--    <div class="home__preview-images">-->
-<!--        <div class="home__images-container">-->
-<!--            {{#each collections}}-->
-<!--            <a href="{{root}}gallery/{{this.name}}"-->
-<!--               class="home__image home__collection-image point-cursor {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"-->
-<!--               data-collection="{{this.id}}"-->
-<!--            >-->
-<!--                <img src="{{this.image}}" alt="collection image"/>-->
-<!--            </a>-->
-<!--            {{/each}}-->
-<!--        </div>-->
-<!--        <div class="home__images-container">-->
-<!--            {{#each products}}-->
-<!--            <div class="home__image home__product-image"-->
-<!--                 data-product="{{this.name}}"-->
-<!--            >-->
-<!--                <img-->
-<!--                        src="{{this.image}}"-->
-<!--                        alt="collection image"-->
-<!--                />-->
-<!--            </div>-->
-<!--            {{/each}}-->
-<!--        </div>-->
-<!--    </div>-->
 </section>

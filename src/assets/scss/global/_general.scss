@@ -40,6 +40,10 @@ main {
   p {
     visibility: hidden;
     display: inline;
+
+    span {
+      font-size: rem-calc(11);
+    }
   }
 
   &:hover {
