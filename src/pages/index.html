@@ -8,11 +8,16 @@
         </a>
         {{#each collections}}
         <a href="{{root}}gallery/{{this.id}}"
-           class="home__image home__collection-image point-cursor {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
+           class="home__image home__collection-image point-cursor"
            data-collection="{{this.id}}"
         >
             <img src="{{this.image}}" alt="collection image"/>
         </a>
+        {{/each}}
+        {{#each products}}
+        <div class="home__image home__product-image" data-product="{{this.name}}">
+            <img src="{{this.image}}" alt="collection image"/>
+        </div>
         {{/each}}
     </div>
 
@@ -30,8 +35,8 @@
             </ul>
         </div>
         {{#each products}}
-        <div class="home__image home__product-image" data-product="{{this.name}}">
-            <img src="{{this.image}}" alt="collection image"/>
+        <div class="home__image home__product-simple-image" data-product="{{this.name}}">
+            <img src="{{this.imageSimple}}" alt="collection image"/>
         </div>
         {{/each}}
     </div>

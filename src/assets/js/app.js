@@ -7,7 +7,7 @@ import {
     setActiveSpecific,
     setActiveYear,
     setCollectionImage,
-    setProductImage,
+    setProductImage, setProductSimpleImage,
 } from './helper'
 import {Slider} from './slideshow'
 import {
@@ -19,14 +19,30 @@ import {
     TZ_STRING
 } from "./constants";
 
+// Collection methods
 const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
 
     setActiveCollection(collection)
     setActiveProducts(collection)
     setActiveYear(collection)
+}
+
+const onCollectionHoverHandler = (e) => {
+    const {collection} = e.target.dataset
+
     setCollectionImage(collection)
-    setProductImage(collection)
+}
+
+const onCollectionLeaveHandler = (e) => {
+    setCollectionImage()
+}
+
+// Product methods
+const onProductClickHandler = (e) => {
+    const {product} = e.target.dataset
+
+    setProductSimpleImage(product)
 }
 
 const onProductHoverHandler = (e) => {
@@ -41,8 +57,10 @@ const onProductLeaveHandler = () => {
     setActiveDescription()
     setActiveSpecific()
     setProductImage()
+    setProductSimpleImage()
 }
 
+// Other methods
 const setCurrentDate = () => {
     const d = new Date()
     const nd = convertTZ(d, TZ_STRING)
@@ -60,9 +78,12 @@ const setCurrentTime = () => {
 
 for (const collection of collections) {
     collection.addEventListener('click', onCollectionClickHandler)
+    collection.addEventListener('mouseover', onCollectionHoverHandler)
+    collection.addEventListener('mouseleave', onCollectionLeaveHandler)
 }
 
 for (let product of products) {
+    product.addEventListener('click', onProductClickHandler)
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }

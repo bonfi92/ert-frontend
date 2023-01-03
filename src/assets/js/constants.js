@@ -8,6 +8,7 @@ export const SPECIFICS_CLASS = 'home__list--specifics'
 // Home page - Preview images
 export const COLLECTION_IMAGE = 'home__collection-image'
 export const PRODUCT_IMAGE = 'home__product-image'
+export const PRODUCT_SIMPLE_IMAGE = 'home__product-simple-image'
 
 // Home page - Classes
 export const VISIBLE_CLASS = 'visible'

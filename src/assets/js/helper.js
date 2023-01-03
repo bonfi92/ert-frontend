@@ -1,10 +1,14 @@
 import {
     ACTIVE_CLASS,
     COLLECTION_IMAGE,
-    COLLECTIONS_CLASS, DESCRIPTIONS_CLASS,
+    COLLECTIONS_CLASS,
+    DESCRIPTIONS_CLASS,
     PRODUCT_IMAGE,
-    PRODUCTS_CLASS, SPECIFICS_CLASS,
-    VISIBLE_CLASS, YEARS_CLASS
+    PRODUCT_SIMPLE_IMAGE,
+    PRODUCTS_CLASS,
+    SPECIFICS_CLASS,
+    VISIBLE_CLASS,
+    YEARS_CLASS
 } from "./constants";
 
 const setActive = (currentActiveList, listToActivate, className) => {
@@ -41,6 +45,14 @@ export const setProductImage = (product) => {
     setActive(
         document.querySelector(`.${PRODUCT_IMAGE}.${VISIBLE_CLASS}`),
         document.querySelector(`.${PRODUCT_IMAGE}[data-product="${product}"]`),
+        VISIBLE_CLASS
+    )
+}
+
+export const setProductSimpleImage = (product) => {
+    setActive(
+        document.querySelector(`.${PRODUCT_SIMPLE_IMAGE}.${VISIBLE_CLASS}`),
+        document.querySelector(`.${PRODUCT_SIMPLE_IMAGE}[data-product="${product}"]`),
         VISIBLE_CLASS
     )
 }
