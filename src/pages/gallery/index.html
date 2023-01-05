@@ -1,14 +1,21 @@
 <div class="gallery-header">
     <a href="{{root}}about" class="logo">
-        <div class="point-cursor" >
+        <div class="point-cursor">
             <h1>
                 <span>H</span>E<span>A</span>RT
             </h1>
-            <p>{{data.description}}</p>
+            <p>{{data.shortDescription}} <span>(See more)</span></p>
         </div>
     </a>
-    <a href="{{root}}" class="point-cursor wobble-animation">Index</a>
+    <div>Kingdom 01</div>
+    <div class="gallery-header__name"></div>
+    <div>
+        <button class="gallery-header__prev-btn">Previous</button>,
+        <button class="gallery-header__next-btn">Next image</button>
+    </div>
+    <a href="{{root}}" class="point-cursor">Index</a>
 </div>
 <section class="gallery">
+    <div class="gallery__description"></div>
     {{> slideshow }}
 </section>

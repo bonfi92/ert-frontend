@@ -1,51 +1,55 @@
-export const Slider = (slider) => {
-    let prev
-    let current
-    let next
+export class Slider {
+    constructor (slider, onInit, onMove) {
+        this.slider = slider
+        this.onInit = onInit
+        this.onMove = onMove
+        this.slides = this.slider.querySelector('.slideshow__slides')
+        this.prevButton = this.slider.querySelector('.slideshow__prev')
+        this.nextButton = this.slider.querySelector('.slideshow__next')
 
-    const slides = slider.querySelector('.slideshow__slides')
-    const prevButton = slider.querySelector('.slideshow__prev')
-    const nextButton = slider.querySelector('.slideshow__next')
-
-    const startSlider = () => {
-        current = slider.querySelector('.current') || slides.firstElementChild
-        prev = current.previousElementSibling || slides.lastElementChild
-        next = current.nextElementSibling || slides.firstElementChild
-
-        applyClasses()
+        this.startSlider()
+        this.prevButton.addEventListener('click', () => this.move('back'))
+        this.nextButton.addEventListener('click', () => this.move())
     }
 
-    const applyClasses = () => {
-        current.classList.add('current')
-        prev.classList.add('prev')
-        next.classList.add('next')
+    startSlider() {
+        this.current = this.slider.querySelector('.current') || this.slides.firstElementChild
+        this.prev = this.current.previousElementSibling || this.slides.lastElementChild
+        this.next = this.current.nextElementSibling || this.slides.firstElementChild
+
+        this.applyClasses()
+
+        this.onInit(this.current)
     }
 
-    const move = (direction) => {
+    applyClasses() {
+        this.current.classList.add('current')
+        this.prev.classList.add('prev')
+        this.next.classList.add('next')
+    }
+
+    move(direction) {
         const classesToRemove = ['prev', 'current', 'next']
-        prev.classList.remove(...classesToRemove)
-        current.classList.remove(...classesToRemove)
-        next.classList.remove(...classesToRemove)
+        this.prev.classList.remove(...classesToRemove)
+        this.current.classList.remove(...classesToRemove)
+        this.next.classList.remove(...classesToRemove)
 
         if (direction === 'back') {
-            [prev, current, next] = [
-                prev.previousElementSibling || slides.lastElementChild,
-                prev,
-                current
+            [this.prev, this.current, this.next] = [
+                this.prev.previousElementSibling || this.slides.lastElementChild,
+                this.prev,
+                this.current
             ]
         } else {
-            [prev, current, next] = [
-                current,
-                next,
-                next.nextElementSibling || slides.firstElementChild,
+            [this.prev, this.current, this.next] = [
+                this.current,
+                this.next,
+                this.next.nextElementSibling || this.slides.firstElementChild,
             ]
         }
 
-        applyClasses()
+        this.applyClasses()
+
+        this.onMove(this.current)
     }
-
-    startSlider()
-
-    prevButton.addEventListener('click', () => move('back'))
-    nextButton.addEventListener('click', move)
 }

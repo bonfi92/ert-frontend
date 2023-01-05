@@ -14,7 +14,7 @@ import {
     collections,
     footerDate,
     footerHour,
-    footerMinute,
+    footerMinute, galleryNextBtn, galleryPrevBtn, gallerySlideDescription, gallerySlideName,
     products, slider,
     TZ_STRING
 } from "./constants";
@@ -93,5 +93,22 @@ setCurrentTime()
 setInterval(setCurrentTime, 2500)
 
 if (slider) {
-    Slider(slider)
+    const onSlideChange = (element) => {
+        const {name, description} = element.dataset
+        gallerySlideName.innerHTML = name
+        gallerySlideDescription.innerHTML = description
+    }
+
+    const sliderInstance = new Slider(slider, onSlideChange, onSlideChange)
+
+    const onNextPrevClickHandler = () => {
+        sliderInstance.move('back')
+    }
+
+    const onNextSlideClickHandler = () => {
+        sliderInstance.move()
+    }
+
+    galleryPrevBtn.addEventListener('click', onNextPrevClickHandler)
+    galleryNextBtn.addEventListener('click', onNextSlideClickHandler)
 }

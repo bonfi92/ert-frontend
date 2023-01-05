@@ -1,10 +1,29 @@
 .gallery {
   height: 100%;
+
+  &__description {
+    display: none;
+  }
 }
 
 .gallery-header {
   display: grid;
-  grid-template: 1fr / 1fr auto;
+  grid-template: 1fr / 1fr 1fr 1fr 1fr auto;
   grid-gap: rem-calc(10);
   padding-bottom: rem-calc(12);
+
+  .logo {
+    > div {
+      position: absolute;
+      background-color: $white;
+
+      p {
+        display: none;
+      }
+    }
+
+    &:hover > div p {
+      display: initial;
+    }
+  }
 }
