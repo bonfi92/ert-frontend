@@ -40,6 +40,10 @@
     pointer-events: none;
     padding: rem-calc(100);
 
+    img {
+      max-height: 100%;
+    }
+
     &.visible {
       visibility: visible;
     }
