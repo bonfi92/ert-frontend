@@ -21,9 +21,11 @@ export const footerHour = document.querySelector('.footer__hour')
 export const footerMinute = document.querySelector('.footer__minute')
 export const footerDate = document.querySelector('.footer__option--date')
 export const slider = document.querySelector('.slideshow')
+export const galleryLink = document.querySelector('.footer__gallery-link')
 
 // Gallery page
-export const gallerySlideName = document.querySelector('.gallery-header__name')
+export const gallerySlideNameMobile = document.querySelector('.gallery-header__name--mobile')
+export const gallerySlideNameDesktop = document.querySelector('.gallery-header__name--desktop')
 export const gallerySlideDescription = document.querySelector('.gallery__description')
 export const galleryPrevBtn = document.querySelector('.gallery-header__prev-btn')
 export const galleryNextBtn = document.querySelector('.gallery-header__next-btn')

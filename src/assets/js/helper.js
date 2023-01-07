@@ -2,7 +2,7 @@ import {
     ACTIVE_CLASS,
     COLLECTION_IMAGE,
     COLLECTIONS_CLASS,
-    DESCRIPTIONS_CLASS,
+    DESCRIPTIONS_CLASS, galleryLink,
     PRODUCT_IMAGE,
     PRODUCT_SIMPLE_IMAGE,
     PRODUCTS_CLASS,
@@ -95,6 +95,10 @@ export const setActiveSpecific = (product) => {
         product ? document.querySelector(`.${SPECIFICS_CLASS} li[data-product="${product}"]`) : null,
         VISIBLE_CLASS
     )
+}
+
+export const setGalleryLink = (collection) => {
+    galleryLink.href = `gallery/${collection}`
 }
 
 

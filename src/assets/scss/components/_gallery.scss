@@ -2,13 +2,23 @@
   height: 100%;
 
   &__description {
+    position: absolute;
+    overflow-y: auto;
+    height: calc(100vh - 5rem);
+    z-index: 1;
     display: none;
+  }
+
+  @include breakpoint(medium) {
+    &__description {
+      display: none;
+    }
   }
 }
 
 .gallery-header {
   display: grid;
-  grid-template: 1fr / 1fr 1fr 1fr 1fr auto;
+  grid-template: 1fr / 3.5rem 1fr auto;
   grid-gap: rem-calc(10);
   padding-bottom: rem-calc(12);
 
@@ -16,6 +26,7 @@
     > div {
       position: absolute;
       background-color: $white;
+      z-index: 1;
 
       p {
         display: none;
@@ -24,6 +35,36 @@
 
     &:hover > div p {
       display: initial;
+    }
+  }
+
+  &__collection,
+  &__actions {
+    display: none;
+  }
+
+  &__text-container {
+    position: relative;
+  }
+
+  &__name--desktop {
+    display: none;
+  }
+
+  @include breakpoint(medium) {
+    grid-template: 1fr / 1fr 1fr 1fr 1fr auto;
+
+    &__collection,
+    &__actions {
+      display: initial;
+    }
+
+    &__name--desktop {
+      display: initial;
+    }
+
+    &__name--mobile {
+      display: none;
     }
   }
 }

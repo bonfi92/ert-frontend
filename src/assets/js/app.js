@@ -7,17 +7,23 @@ import {
     setActiveSpecific,
     setActiveYear,
     setCollectionImage,
-    setProductImage, setProductSimpleImage,
+    setGalleryLink,
+    setProductImage,
+    setProductSimpleImage,
 } from './helper'
 import {Slider} from './slideshow'
 import {
     collections,
     footerDate,
     footerHour,
-    footerMinute, galleryNextBtn, galleryPrevBtn, gallerySlideDescription, gallerySlideName,
-    products, slider,
+    footerMinute,
+    galleryNextBtn,
+    galleryPrevBtn,
+    gallerySlideDescription, gallerySlideNameDesktop, gallerySlideNameMobile,
+    products,
+    slider,
     TZ_STRING
-} from "./constants";
+} from "./constants"
 
 // Collection methods
 const onCollectionClickHandler = (e) => {
@@ -26,6 +32,7 @@ const onCollectionClickHandler = (e) => {
     setActiveCollection(collection)
     setActiveProducts(collection)
     setActiveYear(collection)
+    setGalleryLink(collection)
 }
 
 const onCollectionHoverHandler = (e) => {
@@ -95,11 +102,10 @@ setInterval(setCurrentTime, 2500)
 if (slider) {
     const onSlideChange = (element) => {
         const {name, description} = element.dataset
-        gallerySlideName.innerHTML = name
+        gallerySlideNameDesktop.innerHTML = name
+        gallerySlideNameMobile.innerHTML = name
         gallerySlideDescription.innerHTML = description
     }
-
-    const sliderInstance = new Slider(slider, onSlideChange, onSlideChange)
 
     const onNextPrevClickHandler = () => {
         sliderInstance.move('back')
@@ -109,6 +115,22 @@ if (slider) {
         sliderInstance.move()
     }
 
+    const onGalleryNameClickHandler = () => {
+        const isDescriptionVisible = !!gallerySlideDescription.style.display
+        const currentSlideImage = document.querySelector('.slideshow__slide.current img')
+
+        if (isDescriptionVisible) {
+            gallerySlideDescription.style.display = ''
+            currentSlideImage.style.opacity = ''
+        } else {
+            gallerySlideDescription.style.display = 'initial'
+            currentSlideImage.style.opacity = '.5'
+        }
+    }
+
+    const sliderInstance = new Slider(slider, onSlideChange, onSlideChange)
+
     galleryPrevBtn.addEventListener('click', onNextPrevClickHandler)
     galleryNextBtn.addEventListener('click', onNextSlideClickHandler)
+    gallerySlideNameMobile.addEventListener('click', onGalleryNameClickHandler)
 }
