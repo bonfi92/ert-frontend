@@ -52,8 +52,20 @@ main {
     }
   }
 
-  &--expanded p {
-    visibility: visible;
+  &--expanded {
+    p {
+      visibility: visible;
+
+      span {
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      p span {
+        visibility: visible;
+      }
+    }
   }
 }
 
