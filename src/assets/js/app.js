@@ -13,14 +13,14 @@ import {
 } from './helper'
 import {Slider} from './slideshow'
 import {
-    collections,
+    collections, footer,
     footerDate,
     footerHour,
     footerMinute,
     galleryNextBtn,
     galleryPrevBtn,
     gallerySlideDescription, gallerySlideNameDesktop, gallerySlideNameMobile,
-    products,
+    products, randomImage, sheepIcon,
     slider,
     TZ_STRING
 } from "./constants"
@@ -81,6 +81,16 @@ const setCurrentTime = () => {
     footerMinute.innerHTML = addLeadingZero(nd.getMinutes())
 }
 
+const onSheepHoverHandler = () => {
+    //TODO: get random image from a list
+    randomImage.src = 'https://picsum.photos/id/22/1920/1080'
+    footer.classList.add('footer--random-image')
+}
+
+const onSheepLeaveHandler = () => {
+    footer.classList.remove('footer--random-image')
+}
+
 /* *** INIT APP *** */
 
 for (const collection of collections) {
@@ -98,6 +108,9 @@ for (let product of products) {
 setCurrentDate()
 setCurrentTime()
 setInterval(setCurrentTime, 2500)
+
+sheepIcon.addEventListener('mouseover', onSheepHoverHandler)
+sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
 
 if (slider) {
     const onSlideChange = (element) => {

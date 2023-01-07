@@ -22,6 +22,9 @@ export const footerMinute = document.querySelector('.footer__minute')
 export const footerDate = document.querySelector('.footer__option--date')
 export const slider = document.querySelector('.slideshow')
 export const galleryLink = document.querySelector('.footer__gallery-link')
+export const sheepIcon = document.querySelector('.footer__sheep')
+export const randomImage = document.querySelector('.footer__random-image img')
+export const footer = document.querySelector('.footer')
 
 // Gallery page
 export const gallerySlideNameMobile = document.querySelector('.gallery-header__name--mobile')

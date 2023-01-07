@@ -16,6 +16,40 @@
       margin-left: rem-calc(6);
     }
   }
+
+  &__sheep {
+    width: rem-calc(15);
+    margin-right: rem-calc(6);
+  }
+
+  > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+  }
+
+  &__random-image {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    padding: rem-calc(100);
+
+    &.visible {
+      visibility: visible;
+    }
+  }
+
+  &--random-image {
+    .footer__random-image {
+      visibility: visible;
+    }
+  }
 }
 
 @keyframes blink {
