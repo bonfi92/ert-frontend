@@ -7,15 +7,18 @@
             <p>{{data.shortDescription}} <span>(See more)</span></p>
         </div>
     </a>
-    <div>Kingdom 02</div>
-    <div class="gallery-header__name"></div>
-    <div>
-        <button class="gallery-header__prev-btn">Previous</button>,
-        <button class="gallery-header__next-btn">Next image</button>
+    <div class="gallery-header__collection">Kingdom 02</div>
+    <div class="gallery-header__text-container">
+        <div class="gallery-header__name--mobile point-cursor"></div>
+        <div class="gallery-header__name--desktop"></div>
+        <div class="gallery__description"></div>
+    </div>
+    <div class="gallery-header__actions">
+        <button class="gallery-header__prev-btn point-cursor">Previous</button>,
+        <button class="gallery-header__next-btn point-cursor">Next image</button>
     </div>
     <a href="{{root}}" class="point-cursor">Index</a>
 </div>
 <section class="gallery">
-    <div class="gallery__description"></div>
     {{> slideshow }}
 </section>
