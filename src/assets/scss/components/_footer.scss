@@ -13,13 +13,13 @@
     }
 
     & + .footer__option {
-      margin-left: rem-calc(6);
+      margin-left: rem-calc(10);
     }
   }
 
   &__sheep {
     width: rem-calc(15);
-    margin-right: rem-calc(6);
+    margin-right: rem-calc(10);
   }
 
   > div {
