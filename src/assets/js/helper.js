@@ -105,3 +105,13 @@ export const setGalleryLink = (collection) => {
 export const convertTZ = (date, tzString) => new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {timeZone: tzString}))
 
 export const addLeadingZero = num => ('0' + num).slice(-2)
+
+export const getXMLFeed = (url, callback) => {
+    fetch(url)
+        .then(response => response.text())
+        .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then((data) => callback(data))
+        .catch((err) => {
+            console.error(err)
+        })
+}

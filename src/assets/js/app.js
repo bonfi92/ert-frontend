@@ -1,6 +1,7 @@
 import {
     addLeadingZero,
     convertTZ,
+    getXMLFeed,
     setActiveCollection,
     setActiveDescription,
     setActiveProducts,
@@ -15,14 +16,18 @@ import {Slider} from './slideshow'
 import {
     collections, footer,
     footerDate,
+    footerDetail,
     footerHour,
     footerMinute,
+    footerTemperature,
     galleryNextBtn,
     galleryPrevBtn,
-    gallerySlideDescription, gallerySlideNameDesktop, gallerySlideNameMobile,
+    gallerySlideDescription,
+    gallerySlideNameDesktop,
+    gallerySlideNameMobile,
     products, randomImage, sheepIcon,
     slider,
-    TZ_STRING
+    TZ_STRING, weatherApiUrl
 } from "./constants"
 
 // Collection methods
@@ -91,6 +96,11 @@ const onSheepLeaveHandler = () => {
     footer.classList.remove('footer--random-image')
 }
 
+const setWeatherDetails = (weather, temperature) => {
+    footerTemperature.innerHTML = temperature
+    footerDetail.innerHTML = weather
+}
+
 /* *** INIT APP *** */
 
 for (const collection of collections) {
@@ -111,6 +121,23 @@ setInterval(setCurrentTime, 2500)
 
 sheepIcon.addEventListener('mouseover', onSheepHoverHandler)
 sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
+
+footerTemperature.addEventListener('mouseover', () => {
+    footerDetail.classList.add('visible')
+})
+
+footerTemperature.addEventListener('mouseleave', () => {
+    footerDetail.classList.remove('visible')
+})
+
+getXMLFeed(weatherApiUrl, (data) => {
+    const item = data.getElementsByTagName('item')[0]
+    if (item) {
+        const weather = item.getElementsByTagName('description')[0].innerHTML
+        const temperature = weather.split(' ')[1]
+        setWeatherDetails(weather, temperature)
+    }
+})
 
 if (slider) {
     const onSlideChange = (element) => {
