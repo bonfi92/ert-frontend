@@ -1,7 +1,7 @@
 .home {
   height: 100%;
   display: grid;
-  grid-template: 1fr / 25% 1fr 1fr;
+  grid-template: 1fr / 20% 1fr 2fr;
   grid-gap: rem-calc(20);
 
   &__list {

@@ -43,7 +43,7 @@ main {
 
   p {
     visibility: hidden;
-    display: inline;
+    display: none;
 
     span {
       font-size: rem-calc(11);
@@ -58,6 +58,7 @@ main {
 
   &--expanded {
     p {
+      display: inline;
       visibility: visible;
 
       span {
@@ -69,6 +70,12 @@ main {
       p span {
         visibility: visible;
       }
+    }
+  }
+
+  @include breakpoint(medium) {
+    &:not(.logo--expanded) p {
+      display: inline;
     }
   }
 }
