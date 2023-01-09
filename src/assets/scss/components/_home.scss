@@ -13,6 +13,7 @@
 
     li {
       display: none;
+      white-space: pre-line;
 
       &.active,
       &:hover {
