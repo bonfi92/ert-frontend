@@ -13,7 +13,6 @@
 
     li {
       display: none;
-      white-space: pre-line;
 
       &.active,
       &:hover {
@@ -48,6 +47,13 @@
   &__list--specifics,
   &__list--years {
     display: none;
+  }
+
+  &__list--descriptions,
+  &__list--specifics {
+    li {
+      white-space: pre-line;
+    }
   }
 
   @include breakpoint(medium) {
