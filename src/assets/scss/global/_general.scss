@@ -1,5 +1,9 @@
+html,
 body {
-  height: 100vh;
+  height: 100%;
+}
+
+body {
   font-size: rem-calc(12.5);
   cursor: url("../img/cursor-ert.svg") 0 0, default;
 
