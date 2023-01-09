@@ -53,25 +53,30 @@
     }
   }
 
-  &--random-image {
-    .footer__random-image {
-      visibility: visible;
-    }
-  }
-
   &__detail {
     overflow: hidden;
     flex-shrink: 1 !important;
     margin: rem-calc(0 20);
     width: 100%;
+    position: relative;
   }
 
   &__detail-text {
     animation: ticker 20s linear infinite;
     white-space: nowrap;
     display: none;
+    position: absolute;
+    padding-left: 100%;
+  }
 
-    &.visible {
+  &--random-image {
+    .footer__random-image {
+      visibility: visible;
+    }
+  }
+
+  &--detail-text {
+    .footer__detail-text {
       display: block;
     }
   }
@@ -91,7 +96,7 @@
 
 @keyframes ticker {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);

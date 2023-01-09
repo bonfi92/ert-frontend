@@ -11,6 +11,11 @@
     padding-bottom: rem-calc(16);
   }
 
+  &__description span,
+  &__contacts p {
+    white-space: pre-line;
+  }
+
   &__index {
     position: fixed;
     top: rem-calc(12);
@@ -29,6 +34,16 @@
     .logo,
     &__description {
       padding-bottom: 0;
+    }
+
+    &__description {
+      span:first-child {
+        font-size: rem-calc(20);
+      }
+
+      span:last-child {
+        font-size: rem-calc(13);
+      }
     }
   }
 }

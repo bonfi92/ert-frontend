@@ -14,7 +14,10 @@ import {
 } from './helper'
 import {Slider} from './slideshow'
 import {
-    collections, footer,
+    collections,
+    footer,
+    FOOTER_DETAIL_TEXT_CLASS,
+    FOOTER_RANDOM_IMAGE_CLASS,
     footerDate,
     footerDetail,
     footerHour,
@@ -25,9 +28,12 @@ import {
     gallerySlideDescription,
     gallerySlideNameDesktop,
     gallerySlideNameMobile,
-    products, randomImage, sheepIcon,
+    products,
+    randomImage,
+    sheepIcon,
     slider,
-    TZ_STRING, weatherApiUrl
+    TZ_STRING,
+    weatherApiUrl
 } from "./constants"
 
 // Collection methods
@@ -89,11 +95,11 @@ const setCurrentTime = () => {
 const onSheepHoverHandler = () => {
     //TODO: get random image from a list
     randomImage.src = 'https://picsum.photos/id/22/1920/1080'
-    footer.classList.add('footer--random-image')
+    footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
 }
 
 const onSheepLeaveHandler = () => {
-    footer.classList.remove('footer--random-image')
+    footer.classList.remove(FOOTER_RANDOM_IMAGE_CLASS)
 }
 
 const setWeatherDetails = (weather, temperature) => {
@@ -123,11 +129,11 @@ sheepIcon.addEventListener('mouseover', onSheepHoverHandler)
 sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
 
 footerTemperature.addEventListener('mouseover', () => {
-    footerDetail.classList.add('visible')
+    footer.classList.add(FOOTER_DETAIL_TEXT_CLASS)
 })
 
 footerTemperature.addEventListener('mouseleave', () => {
-    footerDetail.classList.remove('visible')
+    footer.classList.remove(FOOTER_DETAIL_TEXT_CLASS)
 })
 
 getXMLFeed(weatherApiUrl, (data) => {

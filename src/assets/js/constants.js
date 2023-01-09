@@ -14,6 +14,8 @@ export const PRODUCT_SIMPLE_IMAGE = 'home__product-simple-image'
 export const VISIBLE_CLASS = 'visible'
 export const ACTIVE_CLASS = 'active'
 
+export const FOOTER_RANDOM_IMAGE_CLASS = 'footer--random-image'
+export const FOOTER_DETAIL_TEXT_CLASS = 'footer--detail-text'
 export const weatherApiUrl = 'https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/3173435'
 export const TZ_STRING = 'Europe/Rome' // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
