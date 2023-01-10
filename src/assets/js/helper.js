@@ -98,9 +98,10 @@ export const setActiveSpecific = (product) => {
 }
 
 export const setGalleryLink = (collection) => {
-    galleryLink.href = `gallery/${collection}`
+    const linkArray = galleryLink.href.split('/')
+    linkArray.splice(linkArray.length - 2, 1, collection)
+    galleryLink.href = linkArray.join('/')
 }
-
 
 export const convertTZ = (date, tzString) => new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {timeZone: tzString}))
 
