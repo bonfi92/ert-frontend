@@ -16,10 +16,12 @@ import {Slider} from './slideshow'
 import {
     collections,
     footer,
-    FOOTER_DETAIL_TEXT_CLASS,
+    FOOTER_DETAIL_NEWS_CLASS,
+    FOOTER_DETAIL_WEATHER_CLASS,
     FOOTER_RANDOM_IMAGE_CLASS,
     footerDate,
-    footerDetail,
+    footerDetailNews,
+    footerDetailWeather,
     footerHour,
     footerMinute,
     footerTemperature,
@@ -28,6 +30,8 @@ import {
     gallerySlideDescription,
     gallerySlideNameDesktop,
     gallerySlideNameMobile,
+    NEWS_API_KEY,
+    newsIcon,
     products,
     randomImage,
     sheepIcon,
@@ -35,6 +39,9 @@ import {
     TZ_STRING,
     weatherApiUrl
 } from "./constants"
+
+let randomImages
+let randomNews
 
 // Collection methods
 const onCollectionClickHandler = (e) => {
@@ -93,9 +100,12 @@ const setCurrentTime = () => {
 }
 
 const onSheepHoverHandler = () => {
-    //TODO: get random image from a list
-    randomImage.src = 'https://picsum.photos/id/22/1920/1080'
-    footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
+    if (randomImages) {
+        const {url, alt} = randomImages[Math.floor(Math.random() * randomImages.length)]
+        randomImage.src = url
+        randomImage.alt = alt
+        footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
+    }
 }
 
 const onSheepLeaveHandler = () => {
@@ -104,8 +114,20 @@ const onSheepLeaveHandler = () => {
 
 const setWeatherDetails = (weather, temperature) => {
     footerTemperature.innerHTML = temperature
-    footerDetail.innerHTML = weather
+    footerDetailWeather.innerHTML = weather
 }
+
+const onNewsIconHoverHandler = () => {
+    if (randomNews) {
+        footerDetailNews.innerHTML = randomNews[Math.floor(Math.random() * randomNews.length)]
+        footer.classList.add(FOOTER_DETAIL_NEWS_CLASS)
+    }
+}
+
+const onNewsIconLeaveHandler = () => {
+    footer.classList.remove(FOOTER_DETAIL_NEWS_CLASS)
+}
+
 
 /* *** INIT APP *** */
 
@@ -127,13 +149,15 @@ setInterval(setCurrentTime, 2500)
 
 sheepIcon.addEventListener('mouseover', onSheepHoverHandler)
 sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
+newsIcon.addEventListener('mouseover', onNewsIconHoverHandler)
+newsIcon.addEventListener('mouseleave', onNewsIconLeaveHandler)
 
 footerTemperature.addEventListener('mouseover', () => {
-    footer.classList.add(FOOTER_DETAIL_TEXT_CLASS)
+    footer.classList.add(FOOTER_DETAIL_WEATHER_CLASS)
 })
 
 footerTemperature.addEventListener('mouseleave', () => {
-    footer.classList.remove(FOOTER_DETAIL_TEXT_CLASS)
+    footer.classList.remove(FOOTER_DETAIL_WEATHER_CLASS)
 })
 
 getXMLFeed(weatherApiUrl, (data) => {
@@ -144,6 +168,25 @@ getXMLFeed(weatherApiUrl, (data) => {
         setWeatherDetails(weather, temperature)
     }
 })
+
+fetch('/2023/wp-json/acf/v3/pages/28/random_images')
+    .then(res => res.json())
+    .then(data => data.random_images.map(image => ({url: image.url, alt: image.alt})))
+    .then(imagesUrls => randomImages = imagesUrls)
+    .catch(() => {
+        throw Error('Error on fetching random images')
+    })
+
+fetch(`https://newsapi.org/v2/top-headlines?language=en&category=general&sortBy=popularity&pageSize=10&apiKey=${NEWS_API_KEY}`)
+    .then(res => res.json())
+    .then(data => data.articles.map(article => article.title))
+    .then(articlesTitles => {
+        console.log(articlesTitles)
+        return randomNews = articlesTitles;
+    })
+    .catch(() => {
+        throw Error('Error on fetching news')
+    })
 
 if (slider) {
     const onSlideChange = (element) => {

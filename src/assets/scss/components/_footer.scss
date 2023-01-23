@@ -17,7 +17,7 @@
     }
   }
 
-  &__sheep {
+  &__icon {
     width: rem-calc(15);
     margin-right: rem-calc(10);
   }
@@ -79,8 +79,14 @@
     }
   }
 
-  &--detail-text {
-    .footer__detail-text {
+  &--visible-detail-weather {
+    .footer__detail-text--weather {
+      display: block;
+    }
+  }
+
+  &--visible-detail-news {
+    .footer__detail-text--news {
       display: block;
     }
   }

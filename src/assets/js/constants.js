@@ -15,7 +15,8 @@ export const VISIBLE_CLASS = 'visible'
 export const ACTIVE_CLASS = 'active'
 
 export const FOOTER_RANDOM_IMAGE_CLASS = 'footer--random-image'
-export const FOOTER_DETAIL_TEXT_CLASS = 'footer--detail-text'
+export const FOOTER_DETAIL_NEWS_CLASS = 'footer--visible-detail-news'
+export const FOOTER_DETAIL_WEATHER_CLASS = 'footer--visible-detail-weather'
 export const weatherApiUrl = 'https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/3173435'
 export const TZ_STRING = 'Europe/Rome' // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
@@ -25,10 +26,12 @@ export const footerHour = document.querySelector('.footer__hour')
 export const footerMinute = document.querySelector('.footer__minute')
 export const footerDate = document.querySelector('.footer__option--date')
 export const galleryLink = document.querySelector('.footer__gallery-link')
-export const sheepIcon = document.querySelector('.footer__sheep')
+export const sheepIcon = document.querySelector('.footer__icon--sheep')
+export const newsIcon = document.querySelector('.footer__icon--news')
 export const randomImage = document.querySelector('.footer__random-image img')
 export const footerTemperature = document.querySelector('.footer__option--temperature')
-export const footerDetail = document.querySelector('.footer__detail-text')
+export const footerDetailWeather = document.querySelector('.footer__detail-text--weather')
+export const footerDetailNews = document.querySelector('.footer__detail-text--news')
 export const slider = document.querySelector('.slideshow')
 
 // Gallery page
@@ -37,3 +40,5 @@ export const gallerySlideNameDesktop = document.querySelector('.gallery-header__
 export const gallerySlideDescription = document.querySelector('.gallery__description')
 export const galleryPrevBtn = document.querySelector('.gallery-header__prev-btn')
 export const galleryNextBtn = document.querySelector('.gallery-header__next-btn')
+
+export const NEWS_API_KEY = 'ff58ffa0742b431d91374ef63fc9437b'
