@@ -166,13 +166,13 @@ for (const collection of collections) {
     collection.addEventListener('mouseleave', onCollectionLeaveHandler)
 }
 
-for (let product of products) {
+for (const product of products) {
     product.addEventListener('click', onProductClickHandler)
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
 }
 
-for (let description of descriptions) {
+for (const description of descriptions) {
     description.addEventListener('mouseover', onDescriptionHoverHandler)
     description.addEventListener('mouseleave', onDescriptionLeaveHandler)
 }
