@@ -21,6 +21,7 @@ export const weatherApiUrl = 'https://weather-broker-cdn.api.bbci.co.uk/en/obser
 export const TZ_STRING = 'Europe/Rome' // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 export const collections = document.querySelectorAll(`.${COLLECTIONS_CLASS} li`)
 export const products = document.querySelectorAll(`.${PRODUCTS_CLASS} li`)
+export const descriptions = document.querySelectorAll(`.${DESCRIPTIONS_CLASS} li`)
 export const footer = document.querySelector('.footer')
 export const footerHour = document.querySelector('.footer__hour')
 export const footerMinute = document.querySelector('.footer__minute')
@@ -41,5 +42,3 @@ export const gallerySlideNameDesktop = document.querySelector('.gallery-header__
 export const gallerySlideDescription = document.querySelector('.gallery__description')
 export const galleryPrevBtn = document.querySelector('.gallery-header__prev-btn')
 export const galleryNextBtn = document.querySelector('.gallery-header__next-btn')
-
-export const NEWS_API_KEY = 'ff58ffa0742b431d91374ef63fc9437b'

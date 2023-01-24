@@ -49,6 +49,10 @@
   &__list--specifics,
   &__list--years {
     display: none;
+
+    li {
+      color: initial !important;
+    }
   }
 
   &__list--descriptions,

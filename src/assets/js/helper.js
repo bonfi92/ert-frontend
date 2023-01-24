@@ -11,6 +11,8 @@ import {
     YEARS_CLASS
 } from "./constants";
 
+let activeProduct;
+
 const setActive = (currentActiveList, listToActivate, className) => {
     if (currentActiveList) {
         if (currentActiveList.length !== undefined) {
@@ -65,7 +67,19 @@ export const setActiveCollection = (collection) => {
     )
 }
 
-export const setActiveProducts = (collection) => {
+export const setActiveProduct = (product) => {
+    activeProduct = product
+
+    setActive(
+        document.querySelector(`.${PRODUCTS_CLASS} li.${ACTIVE_CLASS}`),
+        document.querySelector(`.${PRODUCTS_CLASS} li[data-product="${product}"]`),
+        ACTIVE_CLASS
+    )
+}
+
+export const getActiveProduct = () => activeProduct
+
+export const setActiveProductList = (collection) => {
     setActive(
         document.querySelectorAll(`.${PRODUCTS_CLASS} li.${VISIBLE_CLASS}`),
         document.querySelectorAll(`.${PRODUCTS_CLASS} li[data-collection="${collection}"]`),

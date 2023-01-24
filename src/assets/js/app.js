@@ -1,10 +1,12 @@
 import {
     addLeadingZero,
     convertTZ,
+    getActiveProduct,
     getXMLFeed,
     setActiveCollection,
     setActiveDescription,
-    setActiveProducts,
+    setActiveProduct,
+    setActiveProductList,
     setActiveSpecific,
     setActiveYear,
     setCollectionImage,
@@ -15,6 +17,7 @@ import {
 import {Slider} from './slideshow'
 import {
     collections,
+    descriptions,
     footer,
     FOOTER_DETAIL_NEWS_CLASS,
     FOOTER_DETAIL_WEATHER_CLASS,
@@ -31,7 +34,6 @@ import {
     gallerySlideDescription,
     gallerySlideNameDesktop,
     gallerySlideNameMobile,
-    NEWS_API_KEY,
     newsIcon,
     products,
     randomImage,
@@ -49,40 +51,64 @@ const onCollectionClickHandler = (e) => {
     const {collection} = e.target.dataset
 
     setActiveCollection(collection)
-    setActiveProducts(collection)
+    setActiveProductList(collection)
     setActiveYear(collection)
     setGalleryLink(collection)
+    setActiveProduct()
+    setProductImage()
 }
 
 const onCollectionHoverHandler = (e) => {
     const {collection} = e.target.dataset
 
     setCollectionImage(collection)
+    setProductImage()
 }
 
-const onCollectionLeaveHandler = (e) => {
+const onCollectionLeaveHandler = () => {
     setCollectionImage()
+
+    const activeProduct = getActiveProduct()
+
+    if (activeProduct) {
+        setProductImage(activeProduct)
+    } else {
+        setProductImage()
+    }
 }
 
 // Product methods
 const onProductClickHandler = (e) => {
     const {product} = e.target.dataset
 
-    setProductSimpleImage(product)
+    setActiveProduct(product)
+    setActiveDescription(product)
+    setActiveSpecific(product)
 }
 
 const onProductHoverHandler = (e) => {
     const {product} = e.target.dataset
 
-    setActiveDescription(product)
-    setActiveSpecific(product)
     setProductImage(product)
 }
 
 const onProductLeaveHandler = () => {
-    setActiveDescription()
-    setActiveSpecific()
-    setProductImage()
+    const activeProduct = getActiveProduct()
+
+    if (activeProduct) {
+        setProductImage(activeProduct)
+    } else {
+        setProductImage()
+    }
+}
+
+const onDescriptionHoverHandler = (e) => {
+    const {product} = e.target.dataset
+
+    setProductSimpleImage(product)
+}
+
+const onDescriptionLeaveHandler = () => {
     setProductSimpleImage()
 }
 
@@ -111,6 +137,8 @@ const onSheepHoverHandler = () => {
 
 const onSheepLeaveHandler = () => {
     footer.classList.remove(FOOTER_RANDOM_IMAGE_CLASS)
+    randomImage.src = ''
+    randomImage.alt = ''
 }
 
 const setWeatherDetails = (weather, temperature) => {
@@ -126,7 +154,6 @@ const onNewsIconHoverHandler = () => {
 }
 
 const onNewsIconLeaveHandler = () => {
-    footerDetailNews.innerHTML = ''
     footer.classList.remove(FOOTER_DETAIL_NEWS_CLASS)
 }
 
@@ -143,6 +170,11 @@ for (let product of products) {
     product.addEventListener('click', onProductClickHandler)
     product.addEventListener('mouseover', onProductHoverHandler)
     product.addEventListener('mouseleave', onProductLeaveHandler)
+}
+
+for (let description of descriptions) {
+    description.addEventListener('mouseover', onDescriptionHoverHandler)
+    description.addEventListener('mouseleave', onDescriptionLeaveHandler)
 }
 
 setCurrentDate()

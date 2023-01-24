@@ -52,11 +52,7 @@
         <h2>Description</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}"
-                    class="point-cursor"
-                >
-                    {{this.description}}
-                </li>
+                <li data-product="{{this.name}}">{{this.description}}</li>
             {{/each}}
         </ul>
     </div>
@@ -65,11 +61,7 @@
         <h2>Specific</h2>
         <ul>
             {{#each products}}
-                <li data-product="{{this.name}}"
-                    class="point-cursor"
-                >
-                    {{this.specific}}
-                </li>
+                <li data-product="{{this.name}}">{{this.specific}}</li>
             {{/each}}
         </ul>
     </div>
@@ -79,7 +71,7 @@
         <ul>
             {{#each collections}}
                 <li data-collection="{{this.id}}"
-                    class="point-cursor {{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
+                    class="{{#ifequal this.id 'kingdom-01'}}visible{{/ifequal}}"
                 >
                     {{this.year}}
                 </li>
