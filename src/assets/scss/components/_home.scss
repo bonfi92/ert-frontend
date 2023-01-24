@@ -6,11 +6,18 @@
   overflow: hidden;
 
   &__list {
+    overflow-y: hidden;
+
     &--with-image {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
+    }
+
+    ul {
+      overflow: auto;
+      max-height: 100%;
     }
 
     li {
