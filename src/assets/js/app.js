@@ -219,7 +219,7 @@ if (slider) {
         gallerySlideDescription.innerHTML = description
     }
 
-    const onNextPrevClickHandler = () => {
+    const onPrevSlideClickHandler = () => {
         sliderInstance.move('back')
     }
 
@@ -234,15 +234,17 @@ if (slider) {
         if (isDescriptionVisible) {
             gallerySlideDescription.style.display = ''
             currentSlideImage.style.opacity = ''
+            slider.style.pointerEvents = ''
         } else {
             gallerySlideDescription.style.display = 'initial'
             currentSlideImage.style.opacity = '.5'
+            slider.style.pointerEvents = 'none'
         }
     }
 
     const sliderInstance = new Slider(slider, onSlideChange, onSlideChange)
 
-    galleryPrevBtn.addEventListener('click', onNextPrevClickHandler)
+    galleryPrevBtn.addEventListener('click', onPrevSlideClickHandler)
     galleryNextBtn.addEventListener('click', onNextSlideClickHandler)
     gallerySlideNameMobile.addEventListener('click', onGalleryNameClickHandler)
 }
