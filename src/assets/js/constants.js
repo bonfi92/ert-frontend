@@ -32,6 +32,7 @@ export const randomImage = document.querySelector('.footer__random-image img')
 export const footerTemperature = document.querySelector('.footer__option--temperature')
 export const footerDetailWeather = document.querySelector('.footer__detail-text--weather')
 export const footerDetailNews = document.querySelector('.footer__detail-text--news')
+export const footerNews = document.querySelector('.news-string')
 export const slider = document.querySelector('.slideshow')
 
 // Gallery page

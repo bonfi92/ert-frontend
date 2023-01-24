@@ -24,6 +24,7 @@ import {
     footerDetailWeather,
     footerHour,
     footerMinute,
+    footerNews,
     footerTemperature,
     galleryNextBtn,
     galleryPrevBtn,
@@ -40,8 +41,8 @@ import {
     weatherApiUrl
 } from "./constants"
 
+const randomNews = footerNews.innerHTML.split('#_#')
 let randomImages
-let randomNews
 
 // Collection methods
 const onCollectionClickHandler = (e) => {
@@ -175,17 +176,6 @@ fetch('/2023/wp-json/acf/v3/pages/28/random_images')
     .then(imagesUrls => randomImages = imagesUrls)
     .catch(() => {
         throw Error('Error on fetching random images')
-    })
-
-fetch(`https://newsapi.org/v2/top-headlines?language=en&category=general&sortBy=popularity&pageSize=10&apiKey=${NEWS_API_KEY}`)
-    .then(res => res.json())
-    .then(data => data.articles.map(article => article.title))
-    .then(articlesTitles => {
-        console.log(articlesTitles)
-        return randomNews = articlesTitles;
-    })
-    .catch(() => {
-        throw Error('Error on fetching news')
     })
 
 if (slider) {
