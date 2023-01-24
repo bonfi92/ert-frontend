@@ -3,12 +3,14 @@
   display: grid;
   grid-template: 1fr / 20% 1fr 2fr;
   grid-gap: rem-calc(20);
+  overflow: hidden;
 
   &__list {
     &--with-image {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: flex-start;
     }
 
     li {
@@ -26,18 +28,18 @@
   }
 
   .home__image {
-    display: inline-block;
+    display: block;
     visibility: hidden;
     position: absolute;
     opacity: 0;
     transition: opacity .15s ease-in-out;
-
-    img {
-      display: block;
-    }
+    max-width: 0;
+    height: 0;
 
     &.visible {
-      position: relative;
+      position: initial;
+      max-width: 100%;
+      height: auto;
       visibility: visible;
       opacity: 1;
     }

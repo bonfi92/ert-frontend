@@ -126,6 +126,7 @@ const onNewsIconHoverHandler = () => {
 }
 
 const onNewsIconLeaveHandler = () => {
+    footerDetailNews.innerHTML = ''
     footer.classList.remove(FOOTER_DETAIL_NEWS_CLASS)
 }
 

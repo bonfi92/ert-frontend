@@ -7,14 +7,10 @@
             <p>{{data.description}} <span>(See more)</span></p>
         </a>
         {{#each collections}}
-        <div class="home__image home__collection-image" data-collection="{{this.id}}">
-            <img src="{{this.image}}" alt="collection image"/>
-        </div>
+        <img src="{{this.image}}" class="home__image home__collection-image" data-collection="{{this.id}}" alt="collection image"/>
         {{/each}}
         {{#each products}}
-        <div class="home__image home__product-image" data-product="{{this.name}}">
-            <img src="{{this.image}}" alt="collection image"/>
-        </div>
+        <img src="{{this.image}}" class="home__image home__product-image" data-product="{{this.name}}" alt="collection image"/>
         {{/each}}
     </div>
 
@@ -32,9 +28,7 @@
             </ul>
         </div>
         {{#each products}}
-        <div class="home__image home__product-simple-image" data-product="{{this.name}}">
-            <img src="{{this.imageSimple}}" alt="collection image"/>
-        </div>
+        <img src="{{this.imageSimple}}" class="home__image home__product-simple-image" data-product="{{this.name}}" alt="collection image"/>
         {{/each}}
     </div>
 
