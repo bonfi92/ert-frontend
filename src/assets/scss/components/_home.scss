@@ -4,6 +4,11 @@
   grid-template: 1fr / 20% 1fr 2fr;
   grid-gap: rem-calc(20);
   overflow: hidden;
+  position: relative;
+
+  @include breakpoint(medium) {
+    position: initial;
+  }
 
   &__list {
     overflow-y: hidden;
@@ -46,11 +51,18 @@
     height: 0;
 
     &.visible {
-      position: initial;
-      max-width: 100%;
+      position: absolute;
+      bottom: 0;
+      max-width: 40%;
       height: auto;
       visibility: visible;
       opacity: 1;
+
+      @include breakpoint(medium) {
+        position: initial;
+        max-width: 100%;
+        bottom: initial;
+      }
     }
   }
 
