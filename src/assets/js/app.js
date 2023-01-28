@@ -37,6 +37,7 @@ import {
     newsIcon,
     products,
     randomImage,
+    randomImageCaption,
     sheepIcon,
     slider,
     TZ_STRING,
@@ -128,9 +129,10 @@ const setCurrentTime = () => {
 
 const onSheepHoverHandler = () => {
     if (randomImages) {
-        const {url, alt} = randomImages[Math.floor(Math.random() * randomImages.length)]
+        const {url, alt, caption} = randomImages[Math.floor(Math.random() * randomImages.length)]
         randomImage.src = url
         randomImage.alt = alt
+        randomImageCaption.innerHTML = caption
         footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
     }
 }
@@ -205,8 +207,7 @@ getXMLFeed(weatherApiUrl, (data) => {
 
 fetch('/2023/wp-json/acf/v3/pages/28/random_images')
     .then(res => res.json())
-    .then(data => data.random_images.map(image => ({url: image.url, alt: image.alt})))
-    .then(imagesUrls => randomImages = imagesUrls)
+    .then(data => randomImages = data.random_images)
     .catch(() => {
         throw Error('Error on fetching random images')
     })
