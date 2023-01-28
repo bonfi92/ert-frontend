@@ -25,6 +25,11 @@
     ul {
       overflow: auto;
       max-height: 100%;
+      padding: 0 rem-calc(5);
+    }
+
+    h2 {
+      padding: 0 rem-calc(5);
     }
 
     li {
