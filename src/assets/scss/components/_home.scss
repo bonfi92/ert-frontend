@@ -66,6 +66,10 @@
     }
   }
 
+  &__list--products li {
+    white-space: pre-line;
+  }
+
   &__list--descriptions,
   &__list--specifics,
   &__list--years {
