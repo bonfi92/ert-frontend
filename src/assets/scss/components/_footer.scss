@@ -15,11 +15,27 @@
     & + .footer__option {
       margin-left: rem-calc(10);
     }
+
+    &--temperature {
+      display: none;
+
+      @include breakpoint(medium) {
+        display: initial;
+      }
+    }
   }
 
   &__icon {
     width: rem-calc(15);
     margin-right: rem-calc(10);
+
+    &--news {
+      display: none;
+
+      @include breakpoint(medium) {
+        display: initial;
+      }
+    }
   }
 
   > div {
