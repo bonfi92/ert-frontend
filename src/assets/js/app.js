@@ -130,17 +130,11 @@ const setCurrentTime = () => {
 const onSheepHoverHandler = () => {
     if (randomImages) {
         const {url, alt, caption} = randomImages[Math.floor(Math.random() * randomImages.length)]
-        const hiddenImage = new Image()
-
-        hiddenImage.onload = () => {
-            randomImage.src = url
-            footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
-        }
-
-        hiddenImage.src = url
+        randomImage.src = url
         randomImage.alt = alt
         randomImageCaption.innerHTML = caption
         randomImageCaption.style.display = caption ? '' : 'none'
+        footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
     }
 }
 
