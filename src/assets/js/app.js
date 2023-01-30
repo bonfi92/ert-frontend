@@ -133,6 +133,7 @@ const onSheepHoverHandler = () => {
         randomImage.src = url
         randomImage.alt = alt
         randomImageCaption.innerHTML = caption
+        randomImageCaption.style.display = caption ? '' : 'none'
         footer.classList.add(FOOTER_RANDOM_IMAGE_CLASS)
     }
 }
