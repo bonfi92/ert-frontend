@@ -19,6 +19,10 @@
     &--temperature {
       display: none;
 
+      &:hover {
+        color: $secondary-color;
+      }
+
       @include breakpoint(medium) {
         display: initial;
       }
@@ -28,6 +32,10 @@
   &__icon {
     width: rem-calc(15);
     margin-right: rem-calc(10);
+
+    &:hover {
+      fill: $secondary-color;
+    }
 
     &--news {
       display: none;
