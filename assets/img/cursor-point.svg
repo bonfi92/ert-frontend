@@ -1,1 +1,1 @@
-<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" width="10" height="10"><defs><clipPath id="clip-path"><path fill="none" d="M0 0h10v10H0z"/></clipPath></defs><g clip-path="url(#clip-path)"><path d="M5 10a5 5 0 115-5.005A4.995 4.995 0 015 10" fill="#1d1d1b"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="5"/></svg>
