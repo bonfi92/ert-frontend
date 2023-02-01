@@ -23,6 +23,10 @@ main {
   flex-direction: column;
 }
 
+button {
+  line-height: inherit;
+}
+
 .point-cursor {
   cursor: url("../img/cursor-point.svg") 0 0, default;
 }
