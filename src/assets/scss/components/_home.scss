@@ -1,13 +1,15 @@
 .home {
   height: 100%;
   display: grid;
-  grid-template: 1fr / 20% 1fr 2fr;
-  grid-gap: rem-calc(20);
+  grid-template: 1fr/20% 1fr 1.7fr;
+  grid-gap: rem-calc(10);
   overflow: hidden;
   position: relative;
 
   @include breakpoint(medium) {
+    grid-template: 1fr / 20% 1fr 2fr;
     position: initial;
+    grid-gap: rem-calc(20);
   }
 
   &__list {
@@ -58,7 +60,7 @@
     &.visible {
       position: absolute;
       bottom: 0;
-      max-width: 40%;
+      max-width: 50%;
       height: auto;
       visibility: visible;
       opacity: 1;

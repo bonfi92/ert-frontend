@@ -16,6 +16,16 @@
     white-space: pre-line;
   }
 
+  &__contacts a {
+    cursor: url("../img/cursor-point.svg") 12 12, default;
+
+    &:hover {
+      display: inline-block;
+      color: $secondary-color;
+      animation: wobble-skew 1s linear 1;
+    }
+  }
+
   &__index {
     position: fixed;
     top: rem-calc(12);

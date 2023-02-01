@@ -1,1 +1,1 @@
-<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10"><defs><clipPath id="clip-path"><rect width="10" height="10" fill="none"/></clipPath></defs><title>Tavola disegno 1 copia</title><g clip-path="url(#clip-path)"><path d="M5,10A5,5,0,1,1,9.9993,4.995,4.9947,4.9947,0,0,1,5,10" fill="#1d1d1b"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10"><circle cx="5" cy="5" r="5"/></svg>
