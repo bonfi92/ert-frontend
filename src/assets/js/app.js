@@ -43,7 +43,7 @@ import {
     TZ_STRING,
     weatherApiUrl
 } from "./constants"
-import {gameHasStarted, start} from "./sheep-game";
+import {start} from "./sheep-game"
 
 const randomNews = footerNews.innerHTML.split('#_#')
 let randomImages
@@ -254,14 +254,21 @@ if (slider) {
 
 // *** SHEEP GAME ***
 let timeoutId
+let gameStarted = false
 
-timeoutId = setTimeout(start, 3000)
+const startSheepGame = () => {
+    timeoutId = setTimeout(start, 3000)
+}
 
 document.addEventListener('mousemove', () => {
     clearTimeout(timeoutId)
-    if (gameHasStarted()) {
+    if (gameStarted) {
         return
     }
-    console.log('----clearTimeout----')
-    timeoutId = setTimeout(start, 3000)
+    startSheepGame()
 })
+
+document.addEventListener('sheepGameStarted', () => gameStarted = true)
+document.addEventListener('sheepGameFinished', () => gameStarted = false)
+
+startSheepGame()

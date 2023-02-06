@@ -13,7 +13,6 @@
     "foundation-sites": "latest",
     "jquery": "^3.6.0",
     "motion-ui": "latest",
-    "particles.js": "^2.0.0",
     "what-input": "^5.2.10"
   },
   "devDependencies": {

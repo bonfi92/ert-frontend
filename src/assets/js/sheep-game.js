@@ -1,4 +1,4 @@
-import 'particles.js'
+import './lib/particles'
 
 const SPACE_ID = 'sheep-game-space'
 const PARTICLES_CONFIG_PATH = 'assets/particles.json'
@@ -7,18 +7,14 @@ let space = document.querySelector(`#${SPACE_ID}`)
 let canvas
 let pJS
 let intervalId
+const endEvent = new Event('sheepGameFinished')
+const startEvent = new Event('sheepGameStarted')
 
 const end = () => {
     console.log('end')
-    console.log(pJS.particles.array.length)
     document.body.classList.remove('sheep-game')
     clearInterval(intervalId)
     pJS.fn.vendors.destroypJS()
-    // pJS.fn.particlesRefresh()
-    // pJS.fn.canvasClear()
-    // pJS.fn.particlesRefresh()
-    // cancelAnimationFrame(pJS.fn.drawAnimFrame)
-    // canvas.remove()
     window.pJSDom = []
 }
 
@@ -27,20 +23,11 @@ const drawSheep = () => {
     pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value))
 }
 
-const isCanvasBlank = canvas => {
-    const context = canvas.getContext('2d', {willReadFrequently: true})
-
-    const pixelBuffer = new Uint32Array(
-        context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
-    )
-
-    return !pixelBuffer.some(color => color !== 0)
-}
-
 const listenUpdates = () => {
     const update = () => {
-        if (pJS?.particles?.array && isCanvasBlank(canvas)) {
+        if (!pJS?.particles?.array.length) {
             end()
+            document.dispatchEvent(endEvent)
             return
         }
         requestAnimationFrame(update)
@@ -51,6 +38,7 @@ const listenUpdates = () => {
 export const gameHasStarted = () => !!window.pJSDom.length
 
 export const start = () => {
+    document.dispatchEvent(startEvent)
     console.log('start')
     window.particlesJS.load(SPACE_ID, PARTICLES_CONFIG_PATH, () => {
         console.log('ready')
