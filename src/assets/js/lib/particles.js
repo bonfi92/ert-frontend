@@ -8,6 +8,7 @@
 /* ----------------------------------------------- */
 
 var pJS = function(tag_id, params){
+    const outOfCanvasEvent = new Event('outOfCanvas')
 
     var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
     let id = 0;
@@ -785,6 +786,8 @@ var pJS = function(tag_id, params){
             pJS.fn.particlesDraw();
         }
 
+        window.dispatchEvent(outOfCanvasEvent)
+
     };
 
 
@@ -954,6 +957,7 @@ var pJS = function(tag_id, params){
                 ) {
                     const indexToRemove = pJS.particles.array.findIndex(el => el.id === p.id)
                     pJS.particles.array.splice(indexToRemove, 1)
+                    window.dispatchEvent(outOfCanvasEvent)
                 }
             }
 
@@ -1212,9 +1216,12 @@ var pJS = function(tag_id, params){
 
 
     pJS.fn.vendors.createSvgImg = function(p){
+        if (!pJS.tmp.count_svg) {
+            pJS.tmp.count_svg = 0
+        }
 
         /* set color to svg element */
-        var svgXml = pJS.tmp.source_svg,
+        var svgXml = Array.isArray(pJS.tmp.source_svg) ? pJS.tmp.source_svg[Math.floor(Math.random() * pJS.tmp.source_svg.length)] : pJS.tmp.source_svg,
             rgbHex = /#([0-9A-F]{3,6})/gi,
             coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
                 if(p.color.rgb){
@@ -1285,20 +1292,41 @@ var pJS = function(tag_id, params){
 
             if(type == 'svg'){
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', pJS.particles.shape.image.src);
-                xhr.onreadystatechange = function (data) {
-                    if(xhr.readyState == 4){
-                        if(xhr.status == 200){
-                            pJS.tmp.source_svg = data.currentTarget.response;
-                            pJS.fn.vendors.checkBeforeDraw();
-                        }else{
-                            console.log('Error pJS - Image not found');
-                            pJS.tmp.img_error = true;
+                let imgSrc = pJS.particles.shape.image.src;
+                if (Array.isArray(imgSrc)) {
+                    pJS.tmp.source_svg = []
+                    const fetchArray = []
+                    imgSrc.forEach((src) => {
+                        fetchArray.push(fetch(src));
+                    })
+                    Promise.all(fetchArray)
+                        .then((res) => {
+                            res.forEach((r, index) => {
+                                r.text().then(svg => {
+                                    pJS.tmp.source_svg.push(svg)
+
+                                    if (index === res.length - 1) {
+                                        pJS.fn.vendors.checkBeforeDraw();
+                                    }
+                                })
+                            })
+                        })
+                } else {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', imgSrc);
+                    xhr.onreadystatechange = function (data) {
+                        if(xhr.readyState == 4){
+                            if(xhr.status == 200){
+                                pJS.tmp.source_svg = data.currentTarget.response;
+                                pJS.fn.vendors.checkBeforeDraw();
+                            }else{
+                                console.log('Error pJS - Image not found');
+                                pJS.tmp.img_error = true;
+                            }
                         }
                     }
+                    xhr.send();
                 }
-                xhr.send();
 
             }else{
 
@@ -1326,10 +1354,12 @@ var pJS = function(tag_id, params){
             if(pJS.tmp.img_type == 'svg'){
 
                 if(pJS.tmp.count_svg >= pJS.particles.number.value){
+                    canvas_el.style.visibility = '';
                     pJS.fn.particlesDraw();
                     if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
                     else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }else{
+                    canvas_el.style.visibility = 'hidden';
                     //console.log('still loading...');
                     if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }
@@ -1399,7 +1429,11 @@ var pJS = function(tag_id, params){
     pJS.fn.vendors.start = function(){
 
         if(isInArray('image', pJS.particles.shape.type)){
-            pJS.tmp.img_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
+            let imgSrc = pJS.particles.shape.image.src;
+            if (Array.isArray(imgSrc)) {
+                imgSrc = imgSrc[0];
+            }
+            pJS.tmp.img_type = imgSrc.substr(imgSrc.length - 3);
             pJS.fn.vendors.loadImg(pJS.tmp.img_type);
         }else{
             pJS.fn.vendors.checkBeforeDraw();

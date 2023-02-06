@@ -11,7 +11,7 @@
       "value": "#000000"
     },
     "shape": {
-      "type": "circle",
+      "type": "image",
       "stroke": {
         "width": 0,
         "color": "#000000"
@@ -20,7 +20,12 @@
         "nb_sides": 5
       },
       "image": {
-        "src": "assets/img/sheep-black.png",
+        "src": [
+          "/assets/img/sheep-1.svg",
+          "/assets/img/sheep-2.svg",
+          "/assets/img/sheep-3.svg",
+          "/assets/img/sheep-4.svg"
+        ],
         "width": 10,
         "height": 10
       }
@@ -54,10 +59,10 @@
     },
     "move": {
       "enable": true,
-      "speed": 6,
+      "speed": 0.5,
       "direction": "none",
-      "random": false,
-      "straight": true,
+      "random": true,
+      "straight": false,
       "out_mode": "out",
       "bounce": false,
       "attract": {
@@ -95,14 +100,14 @@
         "speed": 3
       },
       "repulse": {
-        "distance": 500,
+        "distance": 300,
         "duration": 0.4
       },
       "push": {
         "particles_nb": 4
       },
       "remove": {
-        "particles_nb": 2
+        "particles_nb": 10
       }
     }
   },
