@@ -107,7 +107,7 @@
         "particles_nb": 4
       },
       "remove": {
-        "particles_nb": 10
+        "particles_nb": 500
       }
     }
   },

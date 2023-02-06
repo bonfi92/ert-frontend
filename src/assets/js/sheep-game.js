@@ -36,7 +36,7 @@ export const start = () => {
         console.log('ready')
         pJS = window.pJSDom[0].pJS
         canvas = space.querySelector('canvas')
-        intervalId = setInterval(drawSheep, 2000)
+        intervalId = setInterval(drawSheep, 10000)
         document.body.classList.add('sheep-game')
     })
 }
