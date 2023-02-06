@@ -1,7 +1,7 @@
 import './lib/particles'
+import particlesConfig from "./particles-config"
 
 const SPACE_ID = 'sheep-game-space'
-const PARTICLES_CONFIG_PATH = '/assets/particles.json'
 
 let space = document.querySelector(`#${SPACE_ID}`)
 let canvas
@@ -32,7 +32,7 @@ window.addEventListener('outOfCanvas', () => {
 export const start = () => {
     document.dispatchEvent(startEvent)
     console.log('start')
-    window.particlesJS.load(SPACE_ID, PARTICLES_CONFIG_PATH, () => {
+    window.particlesJS.load(SPACE_ID, particlesConfig, () => {
         console.log('ready')
         pJS = window.pJSDom[0].pJS
         canvas = space.querySelector('canvas')
