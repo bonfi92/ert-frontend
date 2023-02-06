@@ -15,12 +15,11 @@ const end = () => {
     document.body.classList.remove('sheep-game')
     clearInterval(intervalId)
     pJS.fn.vendors.destroypJS()
-    window.pJSDom = []
 }
 
 const drawSheep = () => {
-    console.log('drawSheep', pJS.particles.array.length)
     pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value))
+    console.log('draw sheep', pJS.particles.array.length)
 }
 
 const listenUpdates = () => {
@@ -34,8 +33,6 @@ const listenUpdates = () => {
     }
     return requestAnimationFrame(update)
 }
-
-export const gameHasStarted = () => !!window.pJSDom.length
 
 export const start = () => {
     document.dispatchEvent(startEvent)
