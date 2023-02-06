@@ -10,6 +10,7 @@
 var pJS = function(tag_id, params){
 
     var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
+    let id = 0;
 
     /* particles.js variables with default values */
     this.pJS = {
@@ -239,6 +240,7 @@ var pJS = function(tag_id, params){
     /* --------- pJS functions - particles ----------- */
 
     pJS.fn.particle = function(color, opacity, position){
+        this.id = id++
 
         /* size */
         this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
@@ -945,6 +947,14 @@ var pJS = function(tag_id, params){
             }else{
                 p.x = pos.x;
                 p.y = pos.y;
+
+                if (
+                    !(pos.x + p.radius > 0 && pos.x - p.radius < pJS.canvas.w) ||
+                    !(pos.y + p.radius > 0 && pos.y - p.radius < pJS.canvas.h)
+                ) {
+                    const indexToRemove = pJS.particles.array.findIndex(el => el.id === p.id)
+                    pJS.particles.array.splice(indexToRemove, 1)
+                }
             }
 
         }
