@@ -260,14 +260,16 @@ const startSheepGame = () => {
     timeoutId = setTimeout(start, 3000)
 }
 
-document.addEventListener('mousemove', () => {
+const handleSheepGame = () => {
     clearTimeout(timeoutId)
     if (gameStarted) {
         return
     }
     startSheepGame()
-})
+}
 
+document.addEventListener('mousemove', handleSheepGame)
+document.addEventListener('click', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
 
