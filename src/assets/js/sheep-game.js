@@ -1,10 +1,7 @@
 import './lib/particles'
 import particlesConfig from "./particles-config"
+import {MAX_SHEEP, SHEEP_DRAW_INTERVAL, SHEEP_GAME_BODY_CLASS, SPACE_ID} from "./constants"
 
-const SPACE_ID = 'sheep-game-space'
-
-let space = document.querySelector(`#${SPACE_ID}`)
-let canvas
 let pJS
 let intervalId
 const endEvent = new Event('sheepGameFinished')
@@ -12,7 +9,7 @@ const startEvent = new Event('sheepGameStarted')
 
 const end = () => {
     console.log('end')
-    document.body.classList.remove('sheep-game')
+    document.body.classList.remove(SHEEP_GAME_BODY_CLASS)
     clearInterval(intervalId)
     pJS.fn.vendors.destroypJS()
 }
@@ -35,9 +32,15 @@ export const start = () => {
     window.particlesJS.load(SPACE_ID, particlesConfig, () => {
         console.log('ready')
         pJS = window.pJSDom[0].pJS
-        canvas = space.querySelector('canvas')
-        intervalId = setInterval(drawSheep, 10000)
-        document.body.classList.add('sheep-game')
+        intervalId = setInterval(() => {
+            if (pJS.particles.array.length < MAX_SHEEP) {
+                drawSheep()
+            } else {
+                console.log('clear interval')
+                clearInterval(intervalId)
+            }
+        }, SHEEP_DRAW_INTERVAL * 1000)
+        document.body.classList.add(SHEEP_GAME_BODY_CLASS)
     })
 }
 

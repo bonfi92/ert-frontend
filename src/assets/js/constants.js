@@ -43,3 +43,9 @@ export const gallerySlideNameDesktop = document.querySelector('.gallery-header__
 export const gallerySlideDescription = document.querySelector('.gallery__description')
 export const galleryPrevBtn = document.querySelector('.gallery-header__prev-btn')
 export const galleryNextBtn = document.querySelector('.gallery-header__next-btn')
+
+// Sheep game
+export const SPACE_ID = 'sheep-game-space'
+export const SHEEP_GAME_BODY_CLASS = 'sheep-game'
+export const MAX_SHEEP = 50 // Max number of sheep painted on screen
+export const SHEEP_DRAW_INTERVAL = 10 // seconds

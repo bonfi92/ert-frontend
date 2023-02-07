@@ -1,3 +1,5 @@
+import {MAX_SHEEP} from "./constants"
+
 export default {
     particles: {
         number: {
@@ -107,7 +109,7 @@ export default {
                 particles_nb: 4
             },
             remove: {
-                particles_nb: 500
+                particles_nb: MAX_SHEEP
             }
         }
     },
