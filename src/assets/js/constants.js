@@ -48,4 +48,4 @@ export const galleryNextBtn = document.querySelector('.gallery-header__next-btn'
 export const SPACE_ID = 'sheep-game-space'
 export const SHEEP_GAME_BODY_CLASS = 'sheep-game'
 export const MAX_SHEEP = 50 // Max number of sheep painted on screen
-export const SHEEP_DRAW_INTERVAL = 10 // seconds
+export const SHEEP_DRAW_INTERVAL = 5 // seconds

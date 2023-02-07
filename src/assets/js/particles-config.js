@@ -43,7 +43,7 @@ export default {
             }
         },
         size: {
-            value: 30,
+            value: 20,
             random: false,
             anim: {
                 enable: false,
