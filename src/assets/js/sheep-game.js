@@ -8,7 +8,6 @@ const endEvent = new Event('sheepGameFinished')
 const startEvent = new Event('sheepGameStarted')
 
 const end = () => {
-    console.log('end')
     document.body.classList.remove(SHEEP_GAME_BODY_CLASS)
     clearInterval(intervalId)
     pJS.fn.vendors.destroypJS()
@@ -16,7 +15,6 @@ const end = () => {
 
 const drawSheep = () => {
     pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value))
-    console.log('draw sheep', pJS.particles.array.length)
 }
 
 window.addEventListener('outOfCanvas', () => {
@@ -28,15 +26,12 @@ window.addEventListener('outOfCanvas', () => {
 
 export const start = () => {
     document.dispatchEvent(startEvent)
-    console.log('start')
     window.particlesJS.load(SPACE_ID, particlesConfig, () => {
-        console.log('ready')
         pJS = window.pJSDom[0].pJS
         intervalId = setInterval(() => {
             if (pJS.particles.array.length < MAX_SHEEP) {
                 drawSheep()
             } else {
-                console.log('clear interval')
                 clearInterval(intervalId)
             }
         }, SHEEP_DRAW_INTERVAL * 1000)
