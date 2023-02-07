@@ -2,11 +2,12 @@
   height: 100%;
 
   &__description {
+    display: none;
     position: absolute;
     overflow-y: auto;
     height: calc(100vh - 5rem);
     z-index: 1;
-    display: none;
+    white-space: pre-line
   }
 
   @include breakpoint(medium) {
