@@ -185,9 +185,9 @@ setCurrentDate()
 setCurrentTime()
 setInterval(setCurrentTime, 2500)
 
-sheepIcon.addEventListener('mouseover', onSheepHoverHandler)
+sheepIcon.addEventListener('mouseenter', onSheepHoverHandler)
 sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
-newsIcon.addEventListener('mouseover', onNewsIconHoverHandler)
+newsIcon.addEventListener('mouseenter', onNewsIconHoverHandler)
 newsIcon.addEventListener('mouseleave', onNewsIconLeaveHandler)
 
 footerTemperature.addEventListener('mouseover', () => {
@@ -262,7 +262,11 @@ const startSheepGame = () => {
 
 const handleSheepGame = () => {
     clearTimeout(timeoutId)
-    if (gameStarted) {
+    if (gameStarted ||
+        footer.classList.contains(FOOTER_DETAIL_WEATHER_CLASS) ||
+        footer.classList.contains(FOOTER_DETAIL_NEWS_CLASS) ||
+        footer.classList.contains(FOOTER_RANDOM_IMAGE_CLASS)
+    ) {
         return
     }
     startSheepGame()
