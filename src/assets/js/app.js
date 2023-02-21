@@ -41,6 +41,7 @@ import {
     sheepIcon,
     slider,
     TZ_STRING,
+    WAIT_BEFORE_GAME,
     weatherApiUrl
 } from "./constants"
 import {start} from "./sheep-game"
@@ -257,7 +258,7 @@ let timeoutId
 let gameStarted = false
 
 const startSheepGame = () => {
-    timeoutId = setTimeout(start, 3000)
+    timeoutId = setTimeout(start, WAIT_BEFORE_GAME * 1000)
 }
 
 const handleSheepGame = () => {
