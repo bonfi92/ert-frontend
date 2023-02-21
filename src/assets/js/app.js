@@ -208,7 +208,7 @@ getXMLFeed(weatherApiUrl, (data) => {
     }
 })
 
-fetch('/2023/wp-json/acf/v3/pages/28/random_images')
+fetch('/wp-json/acf/v3/pages/28/random_images')
     .then(res => res.json())
     .then(data => randomImages = data.random_images)
     .catch(() => {
