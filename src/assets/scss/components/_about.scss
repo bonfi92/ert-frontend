@@ -21,7 +21,7 @@
     &:hover {
       display: inline-block;
       color: $secondary-color;
-      animation: wobble-skew 1s linear 1;
+      animation: wobble-skew 1s ease-in-out 1;
     }
   }
 

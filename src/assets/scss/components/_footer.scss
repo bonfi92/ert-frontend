@@ -115,6 +115,15 @@
     padding-left: 100%;
   }
 
+  &__gallery-link {
+    display: inline-block;
+    animation: wobble-skew 1s ease-in-out infinite;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
   &--random-image {
     .footer__random-image {
       visibility: visible;
