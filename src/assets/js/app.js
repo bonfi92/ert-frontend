@@ -288,7 +288,11 @@ const handleInvitationBanner = () => {
     }
 }
 
-const hideInvitationBanner = () => invitationBanner.classList.add('hidden')
+const hideInvitationBanner = () => {
+    if (invitationBanner) {
+        invitationBanner.classList.add('hidden');
+    }
+}
 
 document.addEventListener('mousemove', handleSheepGame)
 document.addEventListener('click', handleSheepGame)
