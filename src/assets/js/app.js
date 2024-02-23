@@ -34,11 +34,13 @@ import {
     gallerySlideDescription,
     gallerySlideNameDesktop,
     gallerySlideNameMobile,
+    invitationBanner,
     newsIcon,
     products,
     randomImage,
     randomImageCaption,
     sheepIcon,
+    HIDE_INVITATION_BANNER,
     slider,
     TZ_STRING,
     WAIT_BEFORE_GAME,
@@ -273,9 +275,26 @@ const handleSheepGame = () => {
     startSheepGame()
 }
 
+// *** INVITATION BANNER ***
+const handleInvitationBanner = () => {
+    const hideInvitationBanner = sessionStorage.getItem(HIDE_INVITATION_BANNER)
+    if (invitationBanner) {
+        if (hideInvitationBanner) {
+            invitationBanner.classList.add('hidden')
+        } else {
+            invitationBanner.classList.remove('hidden')
+            sessionStorage.setItem(HIDE_INVITATION_BANNER, 'true')
+        }
+    }
+}
+
+const hideInvitationBanner = () => invitationBanner.classList.add('hidden')
+
 document.addEventListener('mousemove', handleSheepGame)
 document.addEventListener('click', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
+document.addEventListener('click', hideInvitationBanner)
 
+handleInvitationBanner()
 startSheepGame()

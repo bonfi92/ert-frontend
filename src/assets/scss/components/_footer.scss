@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: rem-calc(12);
+  z-index: 1;
 
   &__separator {
     animation: blink 2s steps(1) infinite;

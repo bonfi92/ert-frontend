@@ -50,3 +50,7 @@ export const SHEEP_GAME_BODY_CLASS = 'sheep-game'
 export const WAIT_BEFORE_GAME = 8 // seconds to wait before the game starts
 export const MAX_SHEEP = 50 // Max number of sheep painted on screen
 export const SHEEP_DRAW_INTERVAL = 5 // seconds
+
+// Invitation banner
+export const HIDE_INVITATION_BANNER = 'hide-invitation-banner'
+export const invitationBanner = document.querySelector('.invitation-banner')
