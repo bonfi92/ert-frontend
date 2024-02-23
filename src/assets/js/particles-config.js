@@ -22,12 +22,7 @@ export default {
                 nb_sides: 5
             },
             image: {
-                src: [
-                    `${window.TEMPLATE_URL || ''}/assets/img/sheep-1.svg`,
-                    `${window.TEMPLATE_URL || ''}/assets/img/sheep-2.svg`,
-                    `${window.TEMPLATE_URL || ''}/assets/img/sheep-3.svg`,
-                    `${window.TEMPLATE_URL || ''}/assets/img/sheep-4.svg`
-                ],
+                src: `${window.TEMPLATE_URL || ''}/assets/img/tigrotto.svg`,
                 width: 10,
                 height: 10
             }
@@ -43,7 +38,7 @@ export default {
             }
         },
         size: {
-            value: 20,
+            value: 80,
             random: false,
             anim: {
                 enable: false,

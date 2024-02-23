@@ -1221,19 +1221,19 @@ var pJS = function(tag_id, params){
         }
 
         /* set color to svg element */
-        var svgXml = Array.isArray(pJS.tmp.source_svg) ? pJS.tmp.source_svg[Math.floor(Math.random() * pJS.tmp.source_svg.length)] : pJS.tmp.source_svg,
-            rgbHex = /#([0-9A-F]{3,6})/gi,
-            coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
-                if(p.color.rgb){
-                    var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+p.opacity+')';
-                }else{
-                    var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+p.opacity+')';
-                }
-                return color_value;
-            });
+        var svgXml = Array.isArray(pJS.tmp.source_svg) ? pJS.tmp.source_svg[Math.floor(Math.random() * pJS.tmp.source_svg.length)] : pJS.tmp.source_svg;
+            // rgbHex = /#([0-9A-F]{3,6})/gi,
+            // coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
+            //     if(p.color.rgb){
+            //         var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+p.opacity+')';
+            //     }else{
+            //         var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+p.opacity+')';
+            //     }
+            //     return color_value;
+            // });
 
         /* prepare to create img with colored svg */
-        var svg = new Blob([coloredSvgXml], {type: 'image/svg+xml;charset=utf-8'}),
+        var svg = new Blob([svgXml], {type: 'image/svg+xml;charset=utf-8'}),
             DOMURL = window.URL || window.webkitURL || window,
             url = DOMURL.createObjectURL(svg);
 
