@@ -22,7 +22,7 @@ export default {
                 nb_sides: 5
             },
             image: {
-                src: `${window.TEMPLATE_URL || 'ert-frontend'}/assets/img/tigrotto.svg`,
+                src: `${window.TEMPLATE_URL || ''}/assets/img/tigrotto.svg`,
                 width: 10,
                 height: 10
             }
