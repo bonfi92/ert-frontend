@@ -10,11 +10,15 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+  gap: rem-calc(30);
 
   p {
     font-family: "Times New Roman", serif;
     text-align: center;
-    margin-top: rem-calc(30);
+  }
+
+  img {
+    max-height: 40vh;
   }
 
   &.hidden {
