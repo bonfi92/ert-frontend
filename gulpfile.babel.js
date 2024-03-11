@@ -38,7 +38,12 @@ console.log(UNCSS_OPTIONS);
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build',
-  gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sassBuild, styleGuide, copyAssets)
+  gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sassBuild, styleGuide)
+);
+
+// Build the site, run the server, and watch for file changes
+gulp.task('build-local',
+    gulp.series('build', copyAssets)
 );
 
 // Build the site, run the server, and watch for file changes

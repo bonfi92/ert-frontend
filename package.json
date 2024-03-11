@@ -5,6 +5,7 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
+    "build-local": "gulp build-local --production",
     "build": "gulp build --production"
   },
   "author": "Foundation Yetinauts <contact@get.foundation> (https://get.foundation)",
