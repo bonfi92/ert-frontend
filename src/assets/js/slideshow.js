@@ -8,8 +8,8 @@ export class Slider {
         this.slides = this.slider.querySelector('.slideshow__slides')
         this.prevButton = this.slider.querySelector('.slideshow__prev')
         this.nextButton = this.slider.querySelector('.slideshow__next')
-        this.imagePositionElement = this.slider.querySelector('.slideshow__image-position')
-        this.imagesCountElement = this.slider.querySelector('.slideshow__images-count')
+        this.imagePositionElement = document.querySelector('.footer__image-position')
+        this.imagesCountElement = document.querySelector('.footer__images-count')
         this.imagesCountElement.innerHTML = this.slides.childElementCount
 
         this.addSwipeAndClickListeners()
