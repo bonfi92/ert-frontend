@@ -6,6 +6,9 @@ export class Slider {
         this.slides = this.slider.querySelector('.slideshow__slides')
         this.prevButton = this.slider.querySelector('.slideshow__prev')
         this.nextButton = this.slider.querySelector('.slideshow__next')
+        this.imagePositionElement = this.slider.querySelector('.slideshow__image-position')
+        this.imagesCountElement = this.slider.querySelector('.slideshow__images-count')
+        this.imagesCountElement.innerHTML = this.slides.childElementCount
 
         this.startSlider()
         this.prevButton.addEventListener('click', () => this.move('back'))
@@ -16,6 +19,8 @@ export class Slider {
         this.current = this.slider.querySelector('.current') || this.slides.firstElementChild
         this.prev = this.current.previousElementSibling || this.slides.lastElementChild
         this.next = this.current.nextElementSibling || this.slides.firstElementChild
+
+        this.renderImagePosition()
 
         this.applyClasses()
 
@@ -48,8 +53,15 @@ export class Slider {
             ]
         }
 
+        this.renderImagePosition()
+
         this.applyClasses()
 
         this.onMove(this.current)
+    }
+
+    renderImagePosition() {
+        this.imagePosition = [...this.slides.children].indexOf(this.current) + 1
+        this.imagePositionElement.innerHTML = this.imagePosition
     }
 }
