@@ -274,7 +274,7 @@ const handleSheepGame = () => {
 }
 
 document.addEventListener('mousemove', handleSheepGame)
-document.addEventListener('click', handleSheepGame)
+document.addEventListener('touchstart', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
 

@@ -1,3 +1,5 @@
+import SwipeListener from 'swipe-listener'
+
 export class Slider {
     constructor (slider, onInit, onMove) {
         this.slider = slider
@@ -10,9 +12,8 @@ export class Slider {
         this.imagesCountElement = this.slider.querySelector('.slideshow__images-count')
         this.imagesCountElement.innerHTML = this.slides.childElementCount
 
+        this.addSwipeAndClickListeners()
         this.startSlider()
-        this.prevButton.addEventListener('click', () => this.move('back'))
-        this.nextButton.addEventListener('click', () => this.move())
     }
 
     startSlider() {
@@ -20,7 +21,7 @@ export class Slider {
         this.prev = this.current.previousElementSibling || this.slides.lastElementChild
         this.next = this.current.nextElementSibling || this.slides.firstElementChild
 
-        this.renderImagePosition()
+        this.renderImagePosition(this.current)
 
         this.applyClasses()
 
@@ -53,15 +54,34 @@ export class Slider {
             ]
         }
 
-        this.renderImagePosition()
+        this.renderImagePosition(this.current)
 
         this.applyClasses()
 
         this.onMove(this.current)
     }
 
-    renderImagePosition() {
-        this.imagePosition = [...this.slides.children].indexOf(this.current) + 1
+    addSwipeAndClickListeners() {
+        this.prevButton.addEventListener('click', () => this.move('back'))
+        this.nextButton.addEventListener('click', () => this.move())
+
+        SwipeListener(this.slider);
+
+        this.slider.addEventListener('swipe', (e) => {
+            const directions = e.detail.directions
+
+            if (directions.left) {
+                this.move()
+            }
+
+            if (directions.right) {
+                this.move('back')
+            }
+        })
+    }
+
+    renderImagePosition(currentImage) {
+        this.imagePosition = [...this.slides.children].indexOf(currentImage) + 1
         this.imagePositionElement.innerHTML = this.imagePosition
     }
 }
