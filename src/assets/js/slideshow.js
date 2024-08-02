@@ -6,13 +6,39 @@ export class Slider {
         this.onInit = onInit
         this.onMove = onMove
         this.slides = this.slider.querySelector('.slideshow__slides')
-        this.prevButton = this.slider.querySelector('.slideshow__prev')
-        this.nextButton = this.slider.querySelector('.slideshow__next')
         this.imagePositionElement = document.querySelector('.footer__image-position')
         this.imagesCountElement = document.querySelector('.footer__images-count')
         this.imagesCountElement.innerHTML = this.slides.childElementCount
+        this.largeImageContainer = document.querySelector('.slideshow__large-image-container')
+        this.largeImage = document.querySelector('.slideshow__large-image')
+        this.largeImageCloseButton = document.querySelector('.slideshow__close-button')
 
-        this.addSwipeAndClickListeners()
+        // Add click listener to each image
+        Array.from(this.slides.children).forEach((slide) => {
+            slide.querySelector('img').addEventListener('click', () => {
+                this.showLargeImage()
+            })
+        })
+
+        // Add click listener to close button
+        this.largeImageCloseButton.addEventListener('click', () => {
+            this.closeLargeImage()
+        })
+
+        // Add swipe listener
+        SwipeListener(this.slider);
+        this.slider.addEventListener('swipe', (e) => {
+            const directions = e.detail.directions
+
+            if (directions.left) {
+                this.move()
+            }
+
+            if (directions.right) {
+                this.move('back')
+            }
+        })
+
         this.startSlider()
     }
 
@@ -61,27 +87,17 @@ export class Slider {
         this.onMove(this.current)
     }
 
-    addSwipeAndClickListeners() {
-        this.prevButton.addEventListener('click', () => this.move('back'))
-        this.nextButton.addEventListener('click', () => this.move())
-
-        SwipeListener(this.slider);
-
-        this.slider.addEventListener('swipe', (e) => {
-            const directions = e.detail.directions
-
-            if (directions.left) {
-                this.move()
-            }
-
-            if (directions.right) {
-                this.move('back')
-            }
-        })
-    }
-
     renderImagePosition(currentImage) {
         this.imagePosition = [...this.slides.children].indexOf(currentImage) + 1
         this.imagePositionElement.innerHTML = this.imagePosition
+    }
+
+    showLargeImage() {
+        this.largeImage.src = this.current.dataset.originalUrl
+        this.largeImageContainer.classList.add('show')
+    }
+
+    closeLargeImage() {
+        this.largeImageContainer.classList.remove('show')
     }
 }
