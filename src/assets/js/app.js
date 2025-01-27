@@ -42,7 +42,8 @@ import {
     slider,
     TZ_STRING,
     WAIT_BEFORE_GAME,
-    weatherApiUrl
+    weatherApiUrl,
+    SHOW_INVITATION_BANNER
 } from "./constants"
 import {start} from "./sheep-game"
 
@@ -273,9 +274,27 @@ const handleSheepGame = () => {
     startSheepGame()
 }
 
+// *** INVITATION BANNER ***
+const handleInvitationBanner = () => {
+    if (!document.querySelector('.invitation-banner')) {
+        return
+    }
+    const showInvitationBanner = sessionStorage.getItem(SHOW_INVITATION_BANNER)
+    if (showInvitationBanner === null || showInvitationBanner === 'true') {
+        document.body.classList.add(SHOW_INVITATION_BANNER)
+        sessionStorage.setItem(SHOW_INVITATION_BANNER, 'false')
+    }
+}
+
+const hideInvitationBanner = () => {
+    document.body.classList.remove(SHOW_INVITATION_BANNER);
+}
+
 document.addEventListener('mousemove', handleSheepGame)
 document.addEventListener('touchstart', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
+document.addEventListener('click', hideInvitationBanner)
 
+handleInvitationBanner()
 startSheepGame()

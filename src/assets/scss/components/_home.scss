@@ -104,3 +104,34 @@
     }
   }
 }
+
+.invitation-banner {
+  display: none;
+  flex-direction: column;
+  background-color: $white;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  gap: rem-calc(30);
+
+  p {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+  }
+
+  img {
+    max-height: 40vh;
+    width: auto;
+  }
+}
+
+.show-invitation-banner {
+  .home {
+    display: none;
+  }
+
+  .invitation-banner {
+    display: flex;
+  }
+}
