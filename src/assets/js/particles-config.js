@@ -22,7 +22,7 @@ export default {
                 nb_sides: 5
             },
             image: {
-                src: `${window.TEMPLATE_URL || ''}/assets/img/tigrotto.svg`,
+                src: `${window.TEMPLATE_URL || ''}/assets/img/face.svg`,
                 width: 10,
                 height: 10
             }
@@ -38,7 +38,7 @@ export default {
             }
         },
         size: {
-            value: 80,
+            value: 100,
             random: false,
             anim: {
                 enable: false,
