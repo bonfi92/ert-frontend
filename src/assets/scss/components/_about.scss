@@ -11,10 +11,6 @@
     padding-bottom: rem-calc(16);
   }
 
-  &__description span {
-    white-space: pre-line;
-  }
-
   &__contacts a {
     cursor: url("../img/cursor-point.svg") 12 12, default;
 
@@ -46,11 +42,11 @@
     }
 
     &__description {
-      span:first-child {
+      &__first-block {
         font-size: rem-calc(18);
       }
 
-      span:last-child {
+      &__second-block {
         font-size: rem-calc(13);
       }
     }
