@@ -2,7 +2,9 @@ import {
     ACTIVE_CLASS,
     COLLECTION_IMAGE,
     COLLECTIONS_CLASS,
-    DESCRIPTIONS_CLASS, galleryLink,
+    DESCRIPTIONS_CLASS,
+    galleryLink,
+    IS_EASTER_EGG_ACTIVE,
     PRODUCT_IMAGE,
     PRODUCT_SIMPLE_IMAGE,
     PRODUCTS_CLASS,
@@ -130,3 +132,5 @@ export const getXMLFeed = (url, callback) => {
             console.error(err)
         })
 }
+
+export const isEasterEggActive = () => sessionStorage.getItem(IS_EASTER_EGG_ACTIVE) === 'true'

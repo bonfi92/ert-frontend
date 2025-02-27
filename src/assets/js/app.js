@@ -3,6 +3,7 @@ import {
     convertTZ,
     getActiveProduct,
     getXMLFeed,
+    isEasterEggActive,
     setActiveCollection,
     setActiveDescription,
     setActiveProduct,
@@ -43,9 +44,11 @@ import {
     TZ_STRING,
     WAIT_BEFORE_GAME,
     weatherApiUrl,
-    SHOW_INVITATION_BANNER
+    SHOW_INVITATION_BANNER,
+    IS_EASTER_EGG_ACTIVE
 } from "./constants"
-import {start} from "./sheep-game"
+import {initGame} from "./sheep-game"
+import {initEasterEgg} from "./easter-egg";
 
 const randomNews = footerNews.innerHTML.split('#_#')
 let randomImages
@@ -259,7 +262,7 @@ let timeoutId
 let gameStarted = false
 
 const startSheepGame = () => {
-    timeoutId = setTimeout(start, WAIT_BEFORE_GAME * 1000)
+    timeoutId = setTimeout(initGame, WAIT_BEFORE_GAME * 1000)
 }
 
 const handleSheepGame = () => {
@@ -294,7 +297,15 @@ document.addEventListener('mousemove', handleSheepGame)
 document.addEventListener('touchstart', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
-document.addEventListener('click', hideInvitationBanner)
 
-handleInvitationBanner()
+if (isEasterEggActive()) {
+    document.addEventListener('click', hideInvitationBanner)
+    handleInvitationBanner()
+}
+
 startSheepGame()
+
+initEasterEgg('ert', () => {
+    alert('Cheat activated!')
+    sessionStorage.setItem(IS_EASTER_EGG_ACTIVE, 'true')
+})

@@ -24,7 +24,7 @@ window.addEventListener('outOfCanvas', () => {
     }
 })
 
-export const start = () => {
+export const initGame = () => {
     document.dispatchEvent(startEvent)
     window.particlesJS.load(SPACE_ID, particlesConfig, () => {
         pJS = window.pJSDom[0].pJS
