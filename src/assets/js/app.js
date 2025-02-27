@@ -48,7 +48,7 @@ import {
     IS_EASTER_EGG_ACTIVE
 } from "./constants"
 import {initGame} from "./sheep-game"
-import {initEasterEgg} from "./easter-egg";
+import {initEasterEgg, showToast} from "./easter-egg"
 
 const randomNews = footerNews.innerHTML.split('#_#')
 let randomImages
@@ -290,7 +290,7 @@ const handleInvitationBanner = () => {
 }
 
 const hideInvitationBanner = () => {
-    document.body.classList.remove(SHOW_INVITATION_BANNER);
+    document.body.classList.remove(SHOW_INVITATION_BANNER)
 }
 
 document.addEventListener('mousemove', handleSheepGame)
@@ -298,14 +298,19 @@ document.addEventListener('touchstart', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
 
+startSheepGame()
+
 if (isEasterEggActive()) {
     document.addEventListener('click', hideInvitationBanner)
     handleInvitationBanner()
 }
 
-startSheepGame()
-
 initEasterEgg('ert', () => {
-    alert('Cheat activated!')
-    sessionStorage.setItem(IS_EASTER_EGG_ACTIVE, 'true')
+    if (isEasterEggActive()) {
+        sessionStorage.removeItem(IS_EASTER_EGG_ACTIVE)
+        showToast('Cheat deactivated!', () => window.location.reload())
+    } else {
+        sessionStorage.setItem(IS_EASTER_EGG_ACTIVE, 'true')
+        showToast('Cheat activated!', () => window.location.reload())
+    }
 })
