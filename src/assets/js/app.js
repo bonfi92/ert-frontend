@@ -3,7 +3,7 @@ import {
     convertTZ,
     getActiveProduct,
     getXMLFeed,
-    isEasterEggActive,
+    isShowSecretActive,
     setActiveCollection,
     setActiveDescription,
     setActiveProduct,
@@ -45,7 +45,7 @@ import {
     WAIT_BEFORE_GAME,
     weatherApiUrl,
     SHOW_INVITATION_BANNER,
-    IS_EASTER_EGG_ACTIVE
+    SHOW_SECRET
 } from "./constants"
 import {initGame} from "./sheep-game"
 import {initEasterEgg, showToast} from "./easter-egg"
@@ -301,12 +301,12 @@ document.addEventListener('click', hideInvitationBanner)
 
 // *** EASTER EGG ***
 initEasterEgg('ert', () => {
-    if (isEasterEggActive()) {
-        sessionStorage.removeItem(IS_EASTER_EGG_ACTIVE)
-        showToast('Cheat deactivated!', () => window.location.reload())
+    if (isShowSecretActive()) {
+        sessionStorage.removeItem(SHOW_SECRET)
+        showToast('Cheat deactivated!')
     } else {
-        sessionStorage.setItem(IS_EASTER_EGG_ACTIVE, 'true')
-        showToast('Cheat activated!', () => window.location.reload())
+        sessionStorage.setItem(SHOW_SECRET, 'true')
+        showToast('Cheat activated!')
     }
 })
 

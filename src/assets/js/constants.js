@@ -54,5 +54,5 @@ export const SHEEP_DRAW_INTERVAL = 5 // seconds
 // Invitation banner
 export const SHOW_INVITATION_BANNER = 'show-invitation-banner'
 
-// FF
-export const IS_EASTER_EGG_ACTIVE = 'isEasterEggActive'
+// Secret feature key
+export const SHOW_SECRET = 'showSecret'
