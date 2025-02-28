@@ -168,7 +168,6 @@ const onNewsIconLeaveHandler = () => {
 
 
 /* *** INIT APP *** */
-
 for (const collection of collections) {
     collection.addEventListener('click', onCollectionClickHandler)
     collection.addEventListener('mouseover', onCollectionHoverHandler)
@@ -293,18 +292,14 @@ const hideInvitationBanner = () => {
     document.body.classList.remove(SHOW_INVITATION_BANNER)
 }
 
+// *** EVENTS ***
 document.addEventListener('mousemove', handleSheepGame)
 document.addEventListener('touchstart', handleSheepGame)
 document.addEventListener('sheepGameStarted', () => gameStarted = true)
 document.addEventListener('sheepGameFinished', () => gameStarted = false)
+document.addEventListener('click', hideInvitationBanner)
 
-startSheepGame()
-
-if (isEasterEggActive()) {
-    document.addEventListener('click', hideInvitationBanner)
-    handleInvitationBanner()
-}
-
+// *** EASTER EGG ***
 initEasterEgg('ert', () => {
     if (isEasterEggActive()) {
         sessionStorage.removeItem(IS_EASTER_EGG_ACTIVE)
@@ -314,3 +309,7 @@ initEasterEgg('ert', () => {
         showToast('Cheat activated!', () => window.location.reload())
     }
 })
+
+// *** INITS ***
+handleInvitationBanner()
+startSheepGame()
