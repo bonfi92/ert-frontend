@@ -26,10 +26,9 @@
              alt="collection image"/>
         {{/each}}
         {{#each products}}
-        <img src="{{this.image}}"
-             class="home__image home__product-image"
-             data-product="{{this.name}}"
-             alt="collection image"/>
+            <div class="home__image home__product-image blend-effect" data-product="{{this.name}}">
+                <img src="{{this.image}}" alt="collection image"/>
+            </div>
         {{/each}}
     </div>
 
