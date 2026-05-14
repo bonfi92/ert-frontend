@@ -1,68 +1,57 @@
-# ZURB Template
+# ERT Frontend
 
-**Please open all issues with this template on the main [Foundation for Sites](https://github.com/foundation/foundation-sites/issues) repo.**
+Frontend assets (HTML, CSS, JS) for the [ERT WordPress theme](https://github.com/bonfi92/ert-wordpress).
 
-This is the official ZURB Template for use with [Foundation for Sites](https://get.foundation/sites/docs/). We use this template at ZURB to deliver static code to our clients. It has a Gulp-powered build system with these features:
+Built with [Foundation for Sites](https://get.foundation/), [Gulp](https://gulpjs.com/), and [Panini](https://get.foundation/sites/docs/panini.html).
 
-- Handlebars HTML templates with Panini
-- Sass compilation and prefixing
-- JavaScript module bundling with webpack
-- Built-in BrowserSync server
-- For production builds:
-  - CSS compression
-  - JavaScript module bundling with webpack
-  - Image compression
+## Prerequisites
+
+- **Node.js** `12.22.12` — use [nvm](https://github.com/nvm-sh/nvm) to install the correct version:
+
+  ```bash
+  nvm install
+  nvm use
+  ```
+
+- **Yarn v1**
+
+  ```bash
+  npm install -g yarn
+  ```
+
+- **[Local](https://localwp.com/)** — used to run the WordPress site locally. Make sure the [ert-wordpress](https://github.com/bonfi92/ert-wordpress) theme is installed in your Local site.
+
+## WordPress theme path
+
+The `build-local` script copies the compiled assets into your local WordPress theme folder.
+
+The destination is defined in `config.yml` under `PATHS.wordpressTheme`:
+
+```yaml
+wordpressTheme: "/Users/<your-user>/Local Sites/ert-kingdom/app/public/wp-content/themes/ert"
+```
+
+Update this path to match your own Local site installation.
 
 ## Installation
 
-To use this template, your computer needs:
-
-- [NodeJS](https://nodejs.org/en/) (Version 12 or greater recommended)
-- [Git](https://git-scm.com/)
-
-This template can be installed with the Foundation CLI, or downloaded and set up manually.
-
-### Using the CLI
-
-Install the Foundation CLI with this command:
-
 ```bash
-npm install foundation-cli --global
+yarn install
 ```
 
-Use this command to set up a blank Foundation for Sites project with this template:
+## NPM Scripts
 
-```bash
-foundation new --framework sites --template zurb
-```
+### `yarn start`
 
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+Starts a local development server on **localhost:8000** with BrowserSync.
+Files are watched for changes — HTML, SCSS, JS, and images are automatically recompiled and the browser is reloaded.
 
-Now `cd` to your project name and to start your project run
+### `yarn build`
 
-```bash
-foundation watch
-```
+Creates a production build in the `dist/` folder.
+CSS is minified, JavaScript is bundled and minified, and images are optimized.
 
-### Manual Setup
+### `yarn build-local`
 
-To manually set up the template, first download it with Git:
-
-```bash
-git clone https://github.com/foundation/foundation-zurb-template projectname
-```
-
-Then open the folder in your command line, and install the needed dependencies:
-
-```bash
-cd projectname
-yarn
-```
-
-Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
-
-```
-http://localhost:8000
-```
-
-To create compressed, production-ready assets, run `yarn run build`.
+Runs a full production build and then copies the compiled assets from `dist/assets` into the WordPress theme folder defined in `config.yml` (`PATHS.wordpressTheme`).
+Use this when you want to test the latest frontend changes inside your Local WordPress site.
