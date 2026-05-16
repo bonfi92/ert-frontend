@@ -1,4 +1,9 @@
 <div class="slideshow">
+  <button class="slideshow__arrow slideshow__arrow--left" aria-label="Previous image">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+      <polygon points="5 0.5 0.25 6.5 5 12.5 5.69 11.81 1.47 6.89 13 6.89 13 6.11 1.47 6.11 5.69 1.19 5 0.5"/>
+    </svg>
+  </button>
   <div class="slideshow__slides">
     {{#each slideshow}}
       <div data-original-url="{{this.originalUrl}}" data-name="{{this.name}}" data-description="{{this.description}}" class="slideshow__slide">
@@ -6,6 +11,11 @@
       </div>
     {{/each}}
   </div>
+  <button class="slideshow__arrow slideshow__arrow--right" aria-label="Next image">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+      <polygon points="8 0.5 12.75 6.5 8 12.5 7.31 11.81 11.53 6.89 0 6.89 0 6.11 11.53 6.11 7.31 1.19 8 0.5"/>
+    </svg>
+  </button>
 </div>
 <div class="slideshow__large-image-container">
   <svg class="slideshow__close-button" viewBox="0 0 24 24" width="24" height="24">

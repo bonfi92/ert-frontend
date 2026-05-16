@@ -25,6 +25,15 @@ export class Slider {
             this.closeLargeImage()
         })
 
+        // Add click listeners to mobile arrows
+        this.slider.querySelector('.slideshow__arrow--left').addEventListener('click', () => {
+            this.move('back')
+        })
+
+        this.slider.querySelector('.slideshow__arrow--right').addEventListener('click', () => {
+            this.move()
+        })
+
         // Add swipe listener
         SwipeListener(this.slider);
         this.slider.addEventListener('swipe', (e) => {

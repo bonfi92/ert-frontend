@@ -1,13 +1,14 @@
 .slideshow {
   height: 100%;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .slideshow__slides {
   height: 100%;
-  position: absolute;
-  width: 100%;
-  left: 0;
+  position: relative;
+  flex: 1;
+  min-width: 0;
 }
 
 .slideshow__slide {
@@ -26,6 +27,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.slideshow__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  padding: rem-calc(44) 0;
+
+  &--left {
+    right: rem-calc(8);
+  }
+
+  &--right {
+    left: rem-calc(8);
+  }
+
+  @include breakpoint(medium) {
+    display: none;
   }
 }
 
