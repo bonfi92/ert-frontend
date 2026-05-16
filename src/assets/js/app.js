@@ -35,21 +35,20 @@ import {
     gallerySlideDescription,
     gallerySlideNameDesktop,
     gallerySlideNameMobile,
-    // newsIcon,
+    newsIcon,
     products,
     randomImage,
     randomImageCaption,
-    // sheepIcon,
+    sheepIcon,
     slider,
     TZ_STRING,
-    // WAIT_BEFORE_GAME,
+    WAIT_BEFORE_GAME,
     weatherApiUrl,
     SHOW_INVITATION_BANNER,
     SHOW_SECRET
 } from "./constants"
-// import {initGame} from "./sheep-game"
+import {initGame} from "./sheep-game"
 import {initEasterEgg, showToast} from "./easter-egg"
-import {createColoredCursor} from './colored-cursor';
 
 const randomNews = footerNews.innerHTML.split('#_#')
 let randomImages
@@ -190,10 +189,10 @@ setCurrentDate()
 setCurrentTime()
 setInterval(setCurrentTime, 2500)
 
-// sheepIcon.addEventListener('mouseenter', onSheepHoverHandler)
-// sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
-// newsIcon.addEventListener('mouseenter', onNewsIconHoverHandler)
-// newsIcon.addEventListener('mouseleave', onNewsIconLeaveHandler)
+sheepIcon.addEventListener('mouseenter', onSheepHoverHandler)
+sheepIcon.addEventListener('mouseleave', onSheepLeaveHandler)
+newsIcon.addEventListener('mouseenter', onNewsIconHoverHandler)
+newsIcon.addEventListener('mouseleave', onNewsIconLeaveHandler)
 
 footerTemperature.addEventListener('mouseover', () => {
     footer.classList.add(FOOTER_DETAIL_WEATHER_CLASS)
@@ -258,24 +257,24 @@ if (slider) {
 }
 
 // *** SHEEP GAME ***
-// let timeoutId
-// let gameStarted = false
+let timeoutId
+let gameStarted = false
 
-// const startSheepGame = () => {
-//     timeoutId = setTimeout(initGame, WAIT_BEFORE_GAME * 1000)
-// }
+const startSheepGame = () => {
+    timeoutId = setTimeout(initGame, WAIT_BEFORE_GAME * 1000)
+}
 
-// const handleSheepGame = () => {
-//     clearTimeout(timeoutId)
-//     if (gameStarted ||
-//         footer.classList.contains(FOOTER_DETAIL_WEATHER_CLASS) ||
-//         footer.classList.contains(FOOTER_DETAIL_NEWS_CLASS) ||
-//         footer.classList.contains(FOOTER_RANDOM_IMAGE_CLASS)
-//     ) {
-//         return
-//     }
-//     startSheepGame()
-// }
+const handleSheepGame = () => {
+    clearTimeout(timeoutId)
+    if (gameStarted ||
+        footer.classList.contains(FOOTER_DETAIL_WEATHER_CLASS) ||
+        footer.classList.contains(FOOTER_DETAIL_NEWS_CLASS) ||
+        footer.classList.contains(FOOTER_RANDOM_IMAGE_CLASS)
+    ) {
+        return
+    }
+    startSheepGame()
+}
 
 // *** INVITATION BANNER ***
 const handleInvitationBanner = () => {
@@ -294,10 +293,10 @@ const hideInvitationBanner = () => {
 }
 
 // *** EVENTS ***
-// document.addEventListener('mousemove', handleSheepGame)
-// document.addEventListener('touchstart', handleSheepGame)
-// document.addEventListener('sheepGameStarted', () => gameStarted = true)
-// document.addEventListener('sheepGameFinished', () => gameStarted = false)
+document.addEventListener('mousemove', handleSheepGame)
+document.addEventListener('touchstart', handleSheepGame)
+document.addEventListener('sheepGameStarted', () => gameStarted = true)
+document.addEventListener('sheepGameFinished', () => gameStarted = false)
 document.addEventListener('click', hideInvitationBanner)
 
 // *** EASTER EGG ***
@@ -313,7 +312,4 @@ initEasterEgg('ert', () => {
 
 // *** INITS ***
 handleInvitationBanner()
-// startSheepGame()
-createColoredCursor({
-    imgSrc: `${window.TEMPLATE_URL || ''}/assets/img/multi-color.jpeg`
-})
+startSheepGame()

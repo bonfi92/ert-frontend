@@ -3,43 +3,12 @@ body {
   height: 100%;
 }
 
-* {
-  cursor: none !important;
-}
-
 body {
   font-size: rem-calc(12.5);
-  //cursor: url("../img/cursor-ert.svg") 0 0, default;
+  cursor: url("../img/cursor-ert.svg") 0 0, default;
 
-  .home__list li,
-  .home__list h2,
-  .logo h1 span:not(.logo__hidden),
-  .logo p,
-  .about__description__first-block,
-  .about__description__second-block,
-  .about__contacts h2,
-  .about__contacts p,
-  .about__contacts a,
-  .about__press,
-  .about__description h2,
-  .about__index,
-  .gallery-header__collection,
-  .gallery-header__actions,
-  .gallery-header__name--desktop,
-  .gallery-header__name--mobile,
-  .gallery-header a,
-  .gallery__description,
-  .footer__gallery-link,
-  .footer__option,
-  .footer__image-counter {
+  * {
     cursor: inherit;
-    background-image: url("../img/multi-color.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
   }
 
   @include breakpoint(medium) {
@@ -58,9 +27,9 @@ button {
   line-height: inherit;
 }
 
-//.point-cursor {
-//  cursor: url("../img/cursor-point.svg") 0 0, default;
-//}
+.point-cursor {
+  cursor: url("../img/cursor-point.svg") 0 0, default;
+}
 
 .logo {
   display: block;
@@ -73,7 +42,7 @@ button {
     font-weight: 900;
     line-height: rem-calc(16.8);
 
-    .logo__hidden {
+    span {
       visibility: hidden;
     }
   }
@@ -131,53 +100,6 @@ button {
   #sheep-game-space {
     visibility: initial;
     z-index: 99;
-  }
-}
-
-#custom-cursor {
-  position: fixed;
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-  z-index: 99999999999;
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.7));
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-#background-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  z-index: -1;
-}
-
-.blend-effect {
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('../img/multi-color.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    mix-blend-mode: screen;
-    pointer-events: none;
-  }
-
-  &:hover {
-    &::before {
-      opacity: 1;
-    }
   }
 }
 
